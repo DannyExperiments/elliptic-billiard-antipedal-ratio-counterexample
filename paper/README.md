@@ -19,6 +19,8 @@ bounded prior-art language, exclusions, authorship, and AI disclosure. It uses
 Candidate B unchanged as its only proof base; no Candidate-A/C cross-patch was
 introduced.
 
-No PDF is present. Source integration and static checks do not satisfy the
-clean-build, text-parity, metadata/privacy, rendered-page inspection, or
-release-PDF approval gates. See `BUILD_STATUS.md` and `BUILD.md`.
+No accepted PDF is present in the repository. The first external CI artifact
+passed clean-build, text-parity, metadata/privacy, and all-page rendered
+inspection. A metadata-only PDF-subject repair now requires one replacement
+build and focused delta audit before repository integration or release-PDF
+approval. See `BUILD_STATUS.md` and `BUILD.md`.

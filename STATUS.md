@@ -15,7 +15,7 @@ Public release gate: `BLOCKED_FAIL_CLOSED`.
 | Priority | `PRIORITY_PASS_QUALIFIED` | The three-lane adjudication found no exact collision; “apparently new after a documented three-lane search through 2026-08-12” is the strongest authorized language. |
 | Exact evidence | `INTEGRATED_REPLAY_PASS` | Deterministic public-safe archive, detached hash, inspected fail-closed verifier, expected output, and frozen replay receipt are integrated. Ordinary and optimized replays byte-match. |
 | Manuscript source | `INTEGRATED_FROZEN_STATIC_PASS` | The Stage-4 Candidate-B TeX, bibliography, build instructions, scope, comparison, manifest, and checksum receipts are integrated byte-for-byte. |
-| Manuscript PDF | `PENDING_REMOTE_CLEAN_BUILD_AND_VISUAL_PREFLIGHT` | A pinned clean-build workflow is staged, but no remote run or PDF exists yet; text-parity, metadata/privacy, and rendered-page inspection gates remain open. |
+| Manuscript PDF | `FIRST_BUILD_AUDITED__REPLACEMENT_BUILD_PENDING` | The first exact-head six-page PDF passed complete visual, parity, metadata, and privacy inspection. A metadata-only PDF-subject repair now requires one replacement build and focused delta audit before integration. |
 | Formalization | `PARTIAL_LEAN_INTEGRATED_PASS` | The dependency-free Lean 4.30.0 finite certificate builds, passes `leanchecker`, exact axiom comparison, and no-escape scanning. It does not formalize the full real-geometric theorem. No Aristotle artifact is claimed. |
 | Peer review | `NOT_OBTAINED` | AI mathematical audits are not human peer review. |
 | Authorship | `DANNYEXPERIMENTS_NO_AFFILIATION` | Explicit staging convention; final citation metadata remains subject to release review. |

@@ -6,9 +6,12 @@ on 2026-08-12 with no license and a generated two-line README placeholder.
 Its bootstrap commit is
 `ed55b397f7c3c2afdf5bc4bc76155f9bba70695c`.
 
-The exact audited candidate tree is uploaded on
-`candidate/initial-private-audit`, replacing that placeholder README. The
-review branch must obtain all four exact-head checks before merge:
+The first exact audited candidate tree was uploaded on
+`candidate/initial-private-audit` as commit
+`33eeef1268954056b0616394f07549d0dc5b086f`, replacing that placeholder
+README. Draft PR #1 remains the private review surface for subsequent
+release-engineering-only repairs. Its final exact head must obtain all four
+checks before merge:
 
 - `Verify staging integrity`;
 - `Python standard-library exact replay`;

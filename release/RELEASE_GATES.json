@@ -20,7 +20,7 @@
     "human_visibility_approved": false,
     "human_doi_metadata_approved": false,
     "human_external_notice_approved": false,
-    "remote_created": false,
+    "remote_created": true,
     "immutable_release_created": false,
     "doi_deposited_and_resolving": false
   }

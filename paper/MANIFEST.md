@@ -13,12 +13,13 @@ CROSS_PATCH_USED: NO
 SOURCE_COMPARISON_COMPLETE: YES
 STATIC_SOURCE_CHECKS: PASS
 HOSTILE_SOURCE_AUDIT_REPAIRS: APPLIED__C14_N6_CARVEOUT__VERSION_OF_RECORD_BIBLIOGRAPHY
-POST_REPAIR_INDEPENDENT_REAUDIT: PENDING
-TEX_ENGINE_AVAILABLE: NO
-PDF_COMPILED: NO
-PDF_VISUALLY_INSPECTED: NO
-MANUSCRIPT_PASS: NOT_YET__COMPILE_AND_PDF_AUDIT_PENDING
-REPOSITORY_OR_PUBLIC_ACTION: NONE
+POST_REPAIR_INDEPENDENT_REAUDIT: PASS__REPORT_SHA256_CA8AC13832EB37C486DF0740BF938ECC620C34640C99B5B499F53FF155C9A0FD
+FIRST_REMOTE_CLEAN_BUILD: PASS__COMMIT_33EEEF1268954056B0616394F07549D0DC5B086F
+FIRST_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PDF_SHA256_89B57F280EC8A18F18627E9CFC594C4FD6EE28F37E672816DD30614492FE599A
+METADATA_ONLY_PDF_SUBJECT_REPAIR: APPLIED__VISIBLE_MATHEMATICS_UNCHANGED
+CURRENT_SOURCE_REPLACEMENT_BUILD: PENDING
+MANUSCRIPT_PASS: HOLD__REPLACEMENT_BUILD_AND_DELTA_AUDIT_PENDING
+REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1_ONLY
 ```
 
 ## Members
@@ -48,7 +49,17 @@ The 2026-08-12 hostile source audit's two editorial findings were applied
 without changing any theorem, witness parameter, calculation, or proof step:
 the focal `N=6`, `a/b=2` one-focus experimental precursor is now named and
 directly cited, and the Garcia--Reznik 2022 entry now distinguishes its
-version-of-record title and metadata from the older arXiv preprint title.
+version-of-record title and metadata from the older arXiv preprint title. A
+separate independent re-audit passed on exact report SHA-256
+`ca8ac13832eb37c486df0740bf938ecc620c34640c99b5b499f53ff155c9a0fd`.
+
+The first clean remote build on commit `33eeef1268954056b0616394f07549d0dc5b086f`
+produced a six-page PDF that passed complete rendered-page, content, metadata,
+and privacy inspection. That build exposed one harmless Hyperref bookmark
+warning caused solely by the underscore in the PDF subject string. The
+subject metadata was changed from `k_607` to `k607`; no visible manuscript,
+theorem, proof, reference, or mathematical dependency changed. A replacement
+clean build and focused delta audit remain mandatory before final PDF acceptance.
 
 ## Privacy and rights surface
 

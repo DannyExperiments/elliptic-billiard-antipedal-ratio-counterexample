@@ -31,6 +31,7 @@ jobs:
       - name: Compile manuscript
         uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b
         with:
+          docker_image: ghcr.io/xu-cheng/texlive-historic-alpine@sha256:73a48f4fc1d3ee7357c8ea5d274af161541c0981432da33339eed7ac1f8e083d
           root_file: manuscript.tex
           working_directory: paper
           args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
