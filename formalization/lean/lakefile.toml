@@ -1,0 +1,6 @@
+name = "k607-finite-certificate"
+version = "0.1.0"
+defaultTargets = ["K607FiniteCertificate"]
+
+[[lean_lib]]
+name = "K607FiniteCertificate"

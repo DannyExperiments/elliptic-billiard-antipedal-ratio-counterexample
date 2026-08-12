@@ -1,0 +1,11 @@
+import K607FiniteCertificate
+
+#print axioms K607FiniteCertificate.algebraCertificate
+#print axioms K607FiniteCertificate.rootBracketCertificate
+#print axioms K607FiniteCertificate.conicDenominatorUnitsCertificate
+#print axioms K607FiniteCertificate.orbitConicCertificate
+#print axioms K607FiniteCertificate.reflectionSquaredCertificate
+#print axioms K607FiniteCertificate.finiteIntersectionCertificate
+#print axioms K607FiniteCertificate.centralInversionCertificate
+#print axioms K607FiniteCertificate.areaDomainCertificate
+#print axioms K607FiniteCertificate.finiteExactCertificate

@@ -1,0 +1,73 @@
+name: Check partial finite exact certificate in Lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-finite-certificate:
+    name: Lean finite exact supporting-line certificate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository without retaining credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify frozen public integration inventory
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Install the checksum-pinned Lean toolchain archive
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/lean-4.30.0-linux.tar.zst"
+          curl --fail --location --silent --show-error \
+            https://github.com/leanprover/lean4/releases/download/v4.30.0/lean-4.30.0-linux.tar.zst \
+            --output "$archive"
+          echo '4dad74141c2c119ca1aa626656be83b8e14238afba97271fd7bf1eb3f081b319  '"$archive" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/lean-toolchain"
+          tar --use-compress-program=unzstd -xf "$archive" \
+            --strip-components=1 -C "$RUNNER_TEMP/lean-toolchain"
+          echo "$RUNNER_TEMP/lean-toolchain/bin" >> "$GITHUB_PATH"
+
+      - name: Build with the frozen zero-package configuration
+        working-directory: formalization/lean
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          test "$(lean --version | head -n 1)" = "Lean (version 4.30.0, x86_64-unknown-linux-gnu, commit d024af099ca4bf2c86f649261ebf59565dc8c622, Release)"
+          test "$(lake --version)" = "Lake version 5.0.0-src+d024af0 (Lean version 4.30.0)"
+          lake build
+
+      - name: Kernel-check the compiled finite certificate
+        working-directory: formalization/lean
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          test -s .lake/build/lib/lean/K607FiniteCertificate.olean
+          lake env leanchecker K607FiniteCertificate
+
+      - name: Enforce the exact axiom report
+        working-directory: formalization/lean
+        run: |
+          set -euo pipefail
+          lake env lean AxiomAudit.lean > /tmp/K607_AXIOM_REPORT.actual.txt
+          diff -u AXIOM_REPORT.txt /tmp/K607_AXIOM_REPORT.actual.txt
+
+      - name: Reject proof escapes and unbounded decision settings
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.lean' '\b(sorry|admit|axiom|native_decide|unsafe)\b' formalization/lean; then
+            echo 'Forbidden Lean proof escape, user axiom, native oracle, or unsafe declaration found.' >&2
+            exit 1
+          fi
+          if grep -RInE --include='*.lean' 'set_option[[:space:]]+maxHeartbeats[[:space:]]+0' formalization/lean; then
+            echo 'Unlimited Lean heartbeat setting found.' >&2
+            exit 1
+          fi
+          grep -nE 'decide \+kernel' formalization/lean/K607FiniteCertificate.lean
