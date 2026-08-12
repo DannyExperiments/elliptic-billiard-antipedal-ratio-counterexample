@@ -21,10 +21,11 @@ detached checksum. Verify both from the repository root with:
   shasum -a 256 -c SHA256SUMS.txt.sha256)
 ```
 
-This verifies source identity only. It does not compile or inspect a PDF. The
-pinned `pdf.yml` workflow performs the clean build; its PDF and log remain
-unaccepted until independently downloaded, reconstructed, rendered, and
-inspected.
+This nested ledger verifies source identity only. The accepted PDF is covered
+by the repository-level ledger and `paper/PDF_PREFLIGHT.md`. The pinned
+`pdf.yml` workflow performs clean rebuilds; a workflow success alone never
+replaces the independent artifact, rendered-page, metadata, privacy, and
+source-parity inspection recorded in that receipt.
 
 Replay the exact standard-library verifier in both assertion modes:
 
@@ -52,8 +53,8 @@ The default command is intentionally fail closed:
 bash scripts/verify.sh
 ```
 
-Until the manuscript PDF, final privacy/rights audit, human approvals,
-immutable release, and DOI are completed, it must exit nonzero with
+Until the remaining human approvals, immutable release, and DOI are completed,
+it must exit nonzero with
 `PUBLIC_RELEASE_GATE: BLOCKED`.
 
 GitHub CI deliberately runs the narrower `--integrity-only` mode. That green

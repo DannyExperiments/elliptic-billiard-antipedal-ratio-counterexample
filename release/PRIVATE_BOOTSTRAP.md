@@ -18,11 +18,17 @@ checks before merge:
 - `Rebuild manuscript PDF`; and
 - `Lean finite exact supporting-line certificate`.
 
+The hardened source/workflow head
+`1c29524a5eb5745cbf785c76e40018bbb979316d` passed all four checks. Its
+checksum-pinned PDF artifact passed complete independent inspection and is now
+being integrated on the same draft PR. The later integration head must repeat
+all four checks before merge.
+
 After the reviewed tree reaches `main`, branch protection must require pull
 requests, these four unique up-to-date checks, conversation resolution, and
 linear history, with no force pushes, deletion, or administrator bypass.
 
 Private bootstrap does not authorize public visibility, a badge, release,
-DOI, or external notice. The generated PDF remains unaccepted until its exact
-artifact and log are downloaded, reconstructed, rendered page by page, and
-audited for content parity, layout, metadata, and privacy.
+DOI, or external notice. The accepted PDF has passed those artifact, content,
+layout, metadata, and privacy gates; that does not waive exact integration-head
+CI or any remaining human and publication gate.

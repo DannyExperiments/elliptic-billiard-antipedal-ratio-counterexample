@@ -17,7 +17,7 @@
 | Exact `N=8` certificate appears new after the bounded search | Three reconciled literature lanes through 2026-08-12 | Qualified priority pass; **do not claim absolute priority** |
 | The repository contains a self-contained public proof | Byte-frozen `paper/manuscript.tex` with source comparison and checksum receipts | **Integrated; static source checks passed** |
 | The repository contains a public certificate and exact replay | `evidence/`, `verification/`, and frozen checksum/replay receipts | **Integrated; normal and optimized replay pass** |
-| The manuscript builds and passed visual preflight | First exact-head six-page PDF passed full rendered-page, parity, metadata, and privacy inspection; a metadata-only subject repair requires a replacement build | **First audit pass; final replacement audit pending** |
+| The manuscript builds and passed visual preflight | Exact checksum-pinned replacement build; accepted `paper/manuscript.pdf`; `paper/PDF_PREFLIGHT.md`; complete 6-of-6 rendered-page, source-parity, metadata, and privacy inspection | **Passed for the accepted PDF; integration-head CI pending** |
 | The full headline theorem is Lean verified | The integrated artifact is only a partial finite certificate and omits real-geometric bridges | **False; forbidden** |
 | A partial finite exact certificate passed Lean checking | `formalization/lean/` plus pinned toolchain, exact axiom report, `leanchecker`, and no-escape gate | **Integrated and locally rebuilt; scope remains partial** |
 | Human specialist peer review occurred | No specialist report present | **False; forbidden** |

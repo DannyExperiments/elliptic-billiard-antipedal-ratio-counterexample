@@ -44,10 +44,12 @@ paper/BUILD.md
 paper/BUILD_STATUS.md
 paper/CLAIM_SCOPE_AND_LIMITATIONS.md
 paper/MANIFEST.md
+paper/PDF_PREFLIGHT.md
 paper/README.md
 paper/SHA256SUMS.txt
 paper/SHA256SUMS.txt.sha256
 paper/SOURCE_TO_CANONICAL_COMPARISON.md
+paper/manuscript.pdf
 paper/manuscript.tex
 paper/references.bib
 release/HUMAN_RELEASE_CHECKLIST.md

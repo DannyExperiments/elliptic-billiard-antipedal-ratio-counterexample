@@ -19,8 +19,9 @@ bounded prior-art language, exclusions, authorship, and AI disclosure. It uses
 Candidate B unchanged as its only proof base; no Candidate-A/C cross-patch was
 introduced.
 
-No accepted PDF is present in the repository. The first external CI artifact
-passed clean-build, text-parity, metadata/privacy, and all-page rendered
-inspection. A metadata-only PDF-subject repair now requires one replacement
-build and focused delta audit before repository integration or release-PDF
-approval. See `BUILD_STATUS.md` and `BUILD.md`.
+`manuscript.pdf` is the exact accepted replacement artifact from private PR
+head `1c29524a5eb5745cbf785c76e40018bbb979316d`. It passed a clean
+checksum-pinned build, source parity, metadata/privacy inspection, and visual
+inspection of all six rendered pages. `PDF_PREFLIGHT.md` binds the source,
+workflow, artifact, log, PDF, extracted text, and rendered-page hashes. Final
+exact-head CI for the repository integration delta remains pending.

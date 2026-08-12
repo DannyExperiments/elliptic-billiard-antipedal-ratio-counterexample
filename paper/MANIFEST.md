@@ -17,9 +17,10 @@ POST_REPAIR_INDEPENDENT_REAUDIT: PASS__REPORT_SHA256_CA8AC13832EB37C486DF0740BF9
 FIRST_REMOTE_CLEAN_BUILD: PASS__COMMIT_33EEEF1268954056B0616394F07549D0DC5B086F
 FIRST_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PDF_SHA256_89B57F280EC8A18F18627E9CFC594C4FD6EE28F37E672816DD30614492FE599A
 METADATA_ONLY_PDF_SUBJECT_REPAIR: APPLIED__VISIBLE_MATHEMATICS_UNCHANGED
-CURRENT_SOURCE_REPLACEMENT_BUILD: PENDING
-MANUSCRIPT_PASS: HOLD__REPLACEMENT_BUILD_AND_DELTA_AUDIT_PENDING
-REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1_ONLY
+CURRENT_SOURCE_REPLACEMENT_BUILD: PASS__COMMIT_1C29524A5EB5745CBF785C76E40018BBB979316D__RUN_31570217856
+REPLACEMENT_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PDF_SHA256_998BA5F77CB8D94A69E4DC7E089F5DD8A2B314AAC7B8F77F677D95553064C7CD
+MANUSCRIPT_PASS: PASS__ACCEPTED_PDF_CANDIDATE_TREE
+REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__INTEGRATION_HEAD_CI_PENDING
 ```
 
 ## Members
@@ -58,8 +59,11 @@ produced a six-page PDF that passed complete rendered-page, content, metadata,
 and privacy inspection. That build exposed one harmless Hyperref bookmark
 warning caused solely by the underscore in the PDF subject string. The
 subject metadata was changed from `k_607` to `k607`; no visible manuscript,
-theorem, proof, reference, or mathematical dependency changed. A replacement
-clean build and focused delta audit remain mandatory before final PDF acceptance.
+theorem, proof, reference, or mathematical dependency changed. The replacement
+clean build on private PR head `1c29524a5eb5745cbf785c76e40018bbb979316d`
+passed the focused content, metadata, privacy, and complete six-page visual
+audit. The accepted PDF is recorded separately in the repository-level ledger
+and `PDF_PREFLIGHT.md`; the nested ledger remains a source-package identity.
 
 ## Privacy and rights surface
 

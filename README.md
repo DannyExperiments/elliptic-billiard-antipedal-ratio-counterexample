@@ -53,10 +53,10 @@ not a counterexample to the signed-area identity.
 | Priority | Passed with bounded language: exact `N=8` certificate apparently new after a three-lane search through 2026-08-12 |
 | Public verifier | Fail-closed standard-library exact replay passes in ordinary and optimized modes; integrity-only mode also verifies its frozen output |
 | Exact evidence | Deterministic public-safe certificate archive and detached SHA-256 sidecar integrated |
-| Manuscript | First exact-head six-page PDF passed complete visual/parity/privacy audit; metadata-only subject repair applied; replacement build and focused delta audit pending |
+| Manuscript | Accepted six-page replacement PDF integrated with exact build receipt, source parity, metadata/privacy pass, and complete 6-of-6 rendered-page inspection; final integration-head CI pending |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
-| Repository | Private bootstrap remote active; audited tree pending exact-head CI; no public visibility, tag, or release |
+| Repository | Private draft PR #1 active; hardened source/workflow head passed all four checks; accepted-PDF integration head pending exact-head CI; no public visibility, tag, or release |
 | DOI | None |
 
 ## Strict scope
@@ -81,8 +81,8 @@ This project does not claim:
   private evidence.
 - `verification/`: independent exact standard-library verifier, expected
   output, and replay receipt.
-- `paper/`: frozen manuscript source package, bibliography, build instructions,
-  source-to-canonical comparison, and pending PDF/preflight gate.
+- `paper/`: frozen manuscript source package, accepted PDF, bibliography,
+  source-to-canonical comparison, and exact PDF-preflight receipt.
 - `.github/workflows/pdf.yml`: pinned clean manuscript build that uploads the
   PDF and build log for independent inspection; it does not itself accept the
   manuscript.
