@@ -1,5 +1,10 @@
 # A domain counterexample for a focal-antipedal area ratio
 
+[![Verify public evidence](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/verify.yml)
+[![Exact verifier replay](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml)
+[![PDF build](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml)
+[![Partial finite exact certificate (Lean)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml)
+
 An exact primitive one-winding `N=8` elliptic-billiard orbit makes both focal
 signed antipedal areas zero under the complete supporting-line construction.
 Consequently, the unqualified quotient in arXiv-v11 row `k_607` is `0/0` at
@@ -81,7 +86,7 @@ scoped Lean artifact.
 | Manuscript | Authorless source matches the mature solve template; the current six-page PDF passed its clean build, source-parity check, blank-metadata/privacy audit, and complete 6/6 visual inspection |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
-| Repository | Public transition approved; private draft PR #1 remains the exact review surface, and its approval-only head must pass all four workflows before merge |
+| Repository | Exact audited PR #1 merged to private `main` at `614152f05d1b6e9005958d7566740b1205a14b25`; all four post-merge workflows passed; protected public visibility is the next gate |
 | DOI | None |
 
 ## Strict scope
@@ -128,8 +133,9 @@ granted; all rights are reserved as described in
 
 ## Release status
 
-This audited private release candidate is approved for public transition.
-Workflow badges activate only after protected public `main` passes; the
-immutable `v1.0.0` release and DOI remain ordered verification gates. Any
+This audited release candidate is approved for public transition. Exact
+private `main` passed all four scoped workflows; the badges above become a
+public claim only after the protected repository is anonymously rechecked.
+The immutable `v1.0.0` release and DOI remain ordered verification gates. Any
 external problem-site notice remains separately unapproved. See
 [STATUS.md](STATUS.md) and [release/README.md](release/README.md).

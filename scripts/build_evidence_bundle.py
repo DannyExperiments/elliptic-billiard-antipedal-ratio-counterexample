@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "release/EVIDENCE_BUNDLE.zip"
 SIDECAR = ROOT / "release/EVIDENCE_BUNDLE.sha256"
+ASSET_LEDGER = ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt"
 PREFIX = "AMR-050-0035_PUBLIC_EVIDENCE_V1/"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 
@@ -139,6 +140,21 @@ def sidecar_text(bundle: bytes) -> str:
     return f"{sha256(bundle)}  EVIDENCE_BUNDLE.zip\n"
 
 
+def asset_ledger_text(bundle: bytes) -> str:
+    assets = {
+        "elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.pdf":
+            (ROOT / "paper/manuscript.pdf").read_bytes(),
+        "elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.tex":
+            (ROOT / "paper/manuscript.tex").read_bytes(),
+        "references.bib": (ROOT / "paper/references.bib").read_bytes(),
+        "CITATION.cff": (ROOT / "CITATION.cff").read_bytes(),
+        "elliptic-billiard-antipedal-ratio-counterexample-public-evidence-v1.0.0.zip": bundle,
+    }
+    return "".join(
+        f"{sha256(assets[name])}  {name}\n" for name in sorted(assets)
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
@@ -146,16 +162,23 @@ def main() -> int:
 
     bundle = build_bytes()
     sidecar = sidecar_text(bundle)
+    asset_ledger = asset_ledger_text(bundle)
     if args.check:
         if not OUTPUT.is_file() or OUTPUT.read_bytes() != bundle:
             raise SystemExit("EVIDENCE_BUNDLE_OUT_OF_DATE")
         if not SIDECAR.is_file() or SIDECAR.read_text(encoding="utf-8") != sidecar:
             raise SystemExit("EVIDENCE_BUNDLE_SIDECAR_OUT_OF_DATE")
+        if (
+            not ASSET_LEDGER.is_file()
+            or ASSET_LEDGER.read_text(encoding="utf-8") != asset_ledger
+        ):
+            raise SystemExit("RELEASE_ASSET_LEDGER_OUT_OF_DATE")
         print("DETERMINISTIC_EVIDENCE_BUNDLE: PASS")
         return 0
 
     OUTPUT.write_bytes(bundle)
     SIDECAR.write_text(sidecar, encoding="utf-8")
+    ASSET_LEDGER.write_text(asset_ledger, encoding="utf-8")
     print(f"WROTE {OUTPUT.relative_to(ROOT)}")
     print(f"SHA256 {sha256(bundle)}")
     return 0

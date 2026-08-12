@@ -43,6 +43,7 @@ ALLOWED_SUFFIXES = {
 ALLOWED_BINARY_PATHS = {
     "evidence/N8_SUPPORTING_LINE_CERTIFICATE.zip",
     "paper/manuscript.pdf",
+    "release/EVIDENCE_BUNDLE.zip",
 }
 
 REQUIRED_RELEASE_FILES = {
@@ -58,10 +59,20 @@ REQUIRED_RELEASE_FILES = {
     "paper/manuscript.pdf",
     "paper/manuscript.tex",
     "paper/references.bib",
+    "release/EVIDENCE_BUNDLE.sha256",
+    "release/EVIDENCE_BUNDLE.zip",
+    "release/RELEASE_ASSET_SHA256SUMS.txt",
     "verification/EXPECTED_K607_STDLIB.txt",
     "verification/REPLAY_ACTUAL.txt",
     "verification/REPLAY_RECEIPT.md",
     "verification/verify_k607_stdlib.py",
+}
+
+EXPECTED_WORKFLOW_BADGES = {
+    "[![Verify public evidence](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/verify.yml)",
+    "[![Exact verifier replay](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml)",
+    "[![PDF build](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml)",
+    "[![Partial finite exact certificate (Lean)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml)",
 }
 
 REQUIRED_GATE_NAMES = {
@@ -321,6 +332,24 @@ def check_frozen_public_certificate() -> list[str]:
     return failures
 
 
+def check_release_bundle() -> list[str]:
+    """Require the staged release bundle, sidecar, and asset ledger to rebuild exactly."""
+
+    from build_evidence_bundle import asset_ledger_text, build_bytes, sidecar_text
+
+    failures: list[str] = []
+    bundle = build_bytes()
+    expected = {
+        ROOT / "release/EVIDENCE_BUNDLE.zip": bundle,
+        ROOT / "release/EVIDENCE_BUNDLE.sha256": sidecar_text(bundle).encode("utf-8"),
+        ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt": asset_ledger_text(bundle).encode("utf-8"),
+    }
+    for path, payload in expected.items():
+        if not path.is_file() or path.read_bytes() != payload:
+            failures.append(f"stale deterministic release artifact: {path.relative_to(ROOT)}")
+    return failures
+
+
 def check_rights_and_metadata() -> list[str]:
     failures: list[str] = []
     root_license_names = {"LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING"}
@@ -338,13 +367,23 @@ def check_rights_and_metadata() -> list[str]:
     if "affiliation:" in citation:
         failures.append("CITATION.cff must not list an affiliation")
     citation_lines = {line.strip() for line in citation.splitlines()}
-    for premature in ("repository-code:", "date-released:", "doi:", "version:"):
-        if any(line.startswith(premature) for line in citation_lines):
-            failures.append(f"premature citation metadata: {premature}")
+    required_citation_lines = {
+        'version: 1.0.0',
+        'date-released: 2026-08-12',
+        'repository-code: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"',
+        'url: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"',
+    }
+    for required in sorted(required_citation_lines - citation_lines):
+        failures.append(f"required release citation metadata absent: {required}")
+    if any(line.startswith("doi:") for line in citation_lines):
+        failures.append("DOI metadata must remain absent until the deposit resolves")
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    if "badge.svg" in readme or "[![" in readme:
-        failures.append("README contains an unapproved badge")
+    present_badges = {line.strip() for line in readme.splitlines() if line.startswith("[![")}
+    if present_badges != EXPECTED_WORKFLOW_BADGES:
+        failures.append("README workflow badges do not match the exact approved four-badge set")
+    if "img.shields.io" in readme or "zenodo" in "\n".join(present_badges).lower():
+        failures.append("DOI badge is premature before the deposit resolves")
 
     manuscript = (ROOT / "paper/manuscript.tex").read_text(encoding="utf-8")
     article_identity_markers = {
@@ -425,6 +464,7 @@ def main() -> int:
     public = set(public_files())
     failures.extend(check_frozen_manuscript())
     failures.extend(check_frozen_public_certificate())
+    failures.extend(check_release_bundle())
     failures.extend(scan_public_text(public))
     failures.extend(check_rights_and_metadata())
     gates, gate_schema_failures = load_release_gates()

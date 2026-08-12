@@ -59,3 +59,11 @@ Private bootstrap does not authorize public visibility, a badge, release,
 DOI, or external notice. The accepted PDF has passed those artifact, content,
 layout, metadata, and privacy gates; that does not waive exact integration-head
 CI or any remaining human and publication gate.
+
+The final approval head
+`320cd6a719b8b0a8307608217a91dd29acae7142` passed all four exact-head
+workflows and PR #1 was squash-merged to private `main` at
+`614152f05d1b6e9005958d7566740b1205a14b25`. The four post-merge runs also
+passed: repository integrity `31614190306`, exact replay `31614190363`, PDF
+build `31614190281`, and partial Lean `31614190259`. Public visibility remains
+a separate authenticated settings action.
