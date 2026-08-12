@@ -1,0 +1,462 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=2em
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Abar}{\overline A}
+\newcommand{\cross}{\mathbin{\times}}
+
+\title[An exact zero of focal antipedal areas]{An Exact Zero of Focal Antipedal Areas}
+\author{DannyExperiments}
+\date{August 12, 2026}
+\subjclass[2020]{37J35, 51M04}
+\keywords{elliptic billiard, Poncelet polygon, antipedal polygon, signed area, exact counterexample}
+\hypersetup{
+  pdftitle={An Exact Zero of Focal Antipedal Areas},
+  pdfauthor={DannyExperiments},
+  pdfsubject={An exact domain counterexample to arXiv:2004.12497v11, row k_607}
+}
+
+\begin{document}
+
+\begin{abstract}
+Row $k_{607}$ of arXiv:2004.12497v11 proposes that the quotient of the two focal antipedal signed areas is $1$ for elliptic-billiard periods divisible by four.
+Under the standard complete-supporting-line construction, we prove that central inversion equates the two signed areas whenever the orbit has the corresponding half-period symmetry.
+We then give an exact primitive one-winding $8$-periodic orbit for which all sixteen focal antipedal intersections are finite but both signed areas vanish.
+The displayed quotient is therefore $0/0$ at that admissible phase, so the unqualified quotient statement needs a nonzero-denominator hypothesis, while the signed-area identity survives.
+The finite algebraic certificate is independently reproducible, but the geometric and domain arguments are proved analytically here.
+The exact $N=8$ certificate appears new after a documented three-lane search through August 12, 2026; absolute historical priority is not claimed.
+\end{abstract}
+
+\maketitle
+
+\section{The problem and the answer}
+
+Let
+\[
+ E:\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,
+ \qquad a>b>0,
+\]
+have foci $F_+=(c,0)$ and $F_-=(-c,0)$, where
+$c^2=a^2-b^2$.  Let $P=(P_0,\ldots,P_{N-1})$ be an ordered periodic
+elliptic-billiard orbit tangent to a fixed nondegenerate confocal caustic.
+For a point $F$ and a vertex $P_i$, let $L_i(F)$ denote the complete line
+through $P_i$ perpendicular to $P_i-F$.  Whenever consecutive lines are
+nonparallel, put
+\[
+ Q_i(F)=L_i(F)\cap L_{i+1}(F),
+ \qquad
+ \Abar^*(F)=\frac12\sum_{i\bmod N}Q_i(F)\cross Q_{i+1}(F),
+\]
+where $(x_1,y_1)\cross(x_2,y_2)=x_1y_2-y_1x_2$.  Thus the area is the
+cyclic signed shoelace area; self-intersections do not trigger absolute
+values.
+
+Reznik, Garcia, and Koiller define polygonal areas with this signed
+convention and list, in row $k_{607}$ of the source table of
+arXiv:2004.12497v11, the proposed value
+\begin{equation}\label{eq:source-problem}
+ \frac{\Abar^*(F_+)}{\Abar^*(F_-)}=1,
+ \qquad N\equiv0\pmod 4,
+\end{equation}
+with proof status ``?'' \cite{ReznikGarciaKoiller2020v11}.  That exact row was
+first present in this form in the revision of October 29, 2020.  This paper is
+about \emph{that versioned formula}.  The later journal article uses the
+identifier $k607$ for a different pedal identity and omits
+\eqref{eq:source-problem}; it treats analogous focal-antipedal relations as
+expected but unchecked \cite[Sec.~3.7 and Table~7]{ReznikGarciaKoiller2021}.
+
+Our answer has two parts.
+
+\begin{theorem}[Corrected focus-exchange statement]\label{thm:corrected}
+Let $N=2m$ and suppose an ordered polygon satisfies
+$P_{i+m}=-P_i$.  For the opposite points $F_-=-F_+$, assume that all
+consecutive complete supporting-line intersections $Q_i(F_+)$ and
+$Q_i(F_-)$ are finite.  Then
+\[
+ Q_{i+m}(F_-)=-Q_i(F_+)
+ \quad\text{and}\quad
+ \Abar^*(F_-)=\Abar^*(F_+).
+\]
+Consequently the quotient in \eqref{eq:source-problem} equals $1$ wherever
+the common signed area is nonzero and is undefined wherever that area is
+zero.
+\end{theorem}
+
+\begin{theorem}[Exact $N=8$ domain counterexample]\label{thm:counterexample}
+There exist a noncircular ellipse, a strictly interior nondegenerate confocal
+elliptic caustic, and a primitive counterclockwise one-winding $8$-periodic
+billiard orbit such that every side is tangent to the caustic on its open
+segment, all sixteen focal antipedal supporting-line intersections are finite,
+and
+\[
+ \Abar^*(F_+)=\Abar^*(F_-)=0.
+\]
+Thus the ordinary real quotient in \eqref{eq:source-problem} is undefined at
+this admissible phase.
+\end{theorem}
+
+Theorem~\ref{thm:counterexample} is a denominator or domain counterexample,
+not an example with unequal focal areas.  The underlying equality in
+Theorem~\ref{thm:corrected} remains valid.  The exact $N=8$ certificate
+appears new after a documented three-lane search through August 12, 2026,
+with moderate-high bounded-search confidence; that search is not a proof of
+absolute priority.
+
+The supporting-line convention is deliberate.  Classical antipedal geometry
+uses complete perpendicular lines \cite[Chap.~VII]{Gallatly1910}; modern
+treatments retain the same convention \cite{Mitrea2010,GarciaEtAl2020Hat}.
+The source prose says ``rays'' without specifying directions, while its figure
+and public implementation use unrestricted affine-line intersections
+\cite{ReznikGarciaKoiller2020v11,ReznikEtAlRepository2020}.  We make no theorem about a polygon formed
+from one selected half-ray at each vertex.  For the witness below such a
+half-ray cycle does not form; see Remark~\ref{rem:rays}.
+
+The ingredients surrounding the result are not new.  Central symmetry of
+simple even elliptic billiards of odd turning number is known
+\cite[Cor.~4.2(i)]{Stachel2021}, and the source authors already use opposite
+vertices to prove the analogous focal-pedal equality
+\cite[Sec.~3.7]{ReznikGarciaKoiller2021}.  Zero antipedal areas were also
+known computationally in other settings \cite{Reznik2020Regular}.  More
+specifically, on October 28, 2020 Reznik publicly exhibited an experimental
+$N=6$, $a/b=2$ elliptic-billiard family whose left-focus antipedal signed area
+was dynamically zero \cite{Reznik2020N6Focus}.  That example lies outside
+$N\equiv0\pmod4$ and does not contain the exact simultaneous-two-focus $N=8$
+certificate below.  Accordingly, no novelty claim is made for complete-line
+antipedals, central symmetry, the focus-exchange mechanism, or zero antipedal
+phenomena in general.
+
+Exact algebraic coordinates for a generic simple symmetric axis-position
+$N=8$ orbit also predate the present certificate
+\cite[Appendix~B.7.1]{GarciaReznik2022}.  Their parameter satisfies a
+different quartic involving the ellipse data.  We therefore claim neither
+the first algebraization of such octagons nor a new generic coordinate
+architecture; the bounded novelty claim concerns only the particular quartic
+specialization below and its simultaneous focal zero.
+
+\section{Central inversion and the corrected theorem}
+
+Let $R(x,y)=(-y,x)$ denote counterclockwise rotation through $\pi/2$.
+The complete antipedal supporting line is parametrized by
+\begin{equation}\label{eq:line-param}
+ L_i(F)=\{P_i+tR(P_i-F):t\in\R\}.
+\end{equation}
+
+\begin{proof}[Proof of Theorem~\ref{thm:corrected}]
+Let $J(X)=-X$.  From $P_{i+m}=-P_i$, $F_-=-F_+$, and linearity of $R$,
+\[
+ J\bigl(P_i+tR(P_i-F_+)\bigr)
+ =P_{i+m}+tR(P_{i+m}-F_-).
+\]
+Hence $J(L_i(F_+))=L_{i+m}(F_-)$.  Since consecutive intersections are
+unique,
+\[
+ Q_{i+m}(F_-)=-Q_i(F_+).
+\]
+The index change $i\mapsto i+m$ is a cyclic shift, not a reversal.  Moreover
+$\det(-I_2)=1$, and therefore $(-X)\cross(-Y)=X\cross Y$.  Reindexing the
+shoelace sum gives
+\[
+ \begin{aligned}
+ 2\Abar^*(F_-)
+ &=\sum_{i\bmod N}Q_{i+m}(F_-)\cross Q_{i+m+1}(F_-)\\
+ &=\sum_{i\bmod N}(-Q_i(F_+))\cross(-Q_{i+1}(F_+))
+ =2\Abar^*(F_+).
+ \end{aligned}
+\]
+The statement about the quotient is now ordinary real division with its
+nonzero-denominator condition retained.
+\end{proof}
+
+For the simple one-winding even elliptic-caustic billiards relevant below,
+the half-period relation $P_{i+N/2}=-P_i$ is standard
+\cite[Cor.~4.2(i)]{Stachel2021}.  Thus Theorem~\ref{thm:corrected} applies to
+that established scope.  We use the cited central-symmetry theorem as prior
+input and make no claim of a new central-symmetry result or of an extension to
+other caustic or turning classes.
+
+We also record that the finiteness hypothesis is automatic for a
+nondegenerate confocal billiard when complete supporting lines are used.
+
+\begin{lemma}\label{lem:finite}
+No real tangent to a nondegenerate confocal caustic passes through a focus of
+the caustic.  Consequently consecutive focal antipedal supporting lines of a
+nondegenerate confocal billiard orbit are nonparallel.
+\end{lemma}
+
+\begin{proof}
+Write the caustic as
+\[
+ C_\lambda:\frac{x^2}{A}+\frac{y^2}{B}=1,
+ \qquad A>0,\quad B\ne0,
+\]
+so its foci are $(\pm c,0)$ with $c^2=A-B$.  A line
+$ux+vy=w$ is tangent precisely when
+\[
+ w^2=Au^2+Bv^2.
+\]
+If it passed through $(c,0)$, then $w=uc$ and substitution would give
+$B(u^2+v^2)=0$, impossible for a line.  The argument for $(-c,0)$ is
+identical.
+
+Now $L_i(F)$ and $L_{i+1}(F)$ are parallel exactly when
+$(P_i-F)\cross(P_{i+1}-F)=0$, equivalently when the billiard side
+$P_iP_{i+1}$ passes through $F$.  Since that side is tangent to the caustic,
+the first part excludes this possibility.
+\end{proof}
+
+\section{The exact octagon}
+
+We now prove Theorem~\ref{thm:counterexample}.  Let $u$ be the real root in
+\begin{equation}\label{eq:root-interval}
+ \frac{313}{1000}<u<\frac{157}{500}
+\end{equation}
+of
+\begin{equation}\label{eq:g}
+ g(u)=u^4-6u^3-2u^2-2u+1.
+\end{equation}
+The exact endpoint values are
+\[
+ g(313/1000)=\frac{3674142961}{10^{12}}>0,
+ \qquad
+ g(157/500)=-\frac{76605799}{62500000000}<0.
+\]
+Also
+\[
+ g'(u)=4u(u^2-1)-18u^2-2<0\qquad(0<u<1),
+\]
+so the root exists and is unique in the stated interval.  In particular
+$u<157/500<1/3<\sqrt2-1$.
+
+Set
+\begin{equation}\label{eq:parameters}
+ r=\frac{(1-u)^3(1+u)}{4u^3},\qquad
+ a=\sqrt r,\qquad b=1,\qquad c=\sqrt{r-1},
+\end{equation}
+and
+\begin{equation}\label{eq:CS}
+ C=\frac{1-u^2}{1+u^2},\qquad
+ S=\frac{2u}{1+u^2}.
+\end{equation}
+The factorization
+\begin{equation}\label{eq:rminusone}
+ r-1=-\frac{(1+u^2)(u^2+2u-1)}{4u^3}>0
+\end{equation}
+shows $a>1$.  Define
+\begin{equation}\label{eq:vertices}
+\begin{aligned}
+P_0&=(a,0),&P_1&=(aC,S),&P_2&=(0,1),&P_3&=(-aC,S),\\
+P_4&=(-a,0),&P_5&=(-aC,-S),&P_6&=(0,-1),&P_7&=(aC,-S).
+\end{aligned}
+\end{equation}
+Because $C^2+S^2=1$, all vertices lie on
+\begin{equation}\label{eq:outer}
+ E:\frac{x^2}{a^2}+y^2=1.
+\end{equation}
+Let $\theta=2\arctan u$.  From $0<u<\sqrt2-1$ we have
+$0<\theta<\pi/4$, and the eccentric anomalies of the displayed vertices are
+\[
+ 0,\ \theta,\ \frac\pi2,\ \pi-\theta,\ \pi,\quad
+ \pi+\theta,\ \frac{3\pi}2,\ 2\pi-\theta.
+\]
+They are strictly increasing modulo $2\pi$.  Thus the vertices are distinct,
+occur counterclockwise, complete one winding, and satisfy $P_{i+4}=-P_i$.
+In particular, no lower-period traversal is repeated.
+
+\subsection*{One common caustic and the billiard law}
+
+Put
+\begin{equation}\label{eq:lambda}
+ \lambda=\frac{a^2u^2}{1+a^2u^2}.
+\end{equation}
+Then $0<\lambda<1$, so
+\begin{equation}\label{eq:caustic}
+ C_\lambda:\frac{x^2}{a^2-\lambda}
+             +\frac{y^2}{1-\lambda}=1
+\end{equation}
+is a nondegenerate confocal ellipse strictly inside $E$.
+
+For $P(\alpha)=(a\cos\alpha,\sin\alpha)$, the line through
+$P(\alpha)$ and $P(\beta)$ has equation
+\[
+ \frac{x}{a}\cos\mu+y\sin\mu=\cos\delta,
+ \qquad
+ \mu=\frac{\alpha+\beta}{2},\quad
+ \delta=\frac{\alpha-\beta}{2}.
+\]
+The dual-conic tangency criterion gives its confocal parameter as
+\begin{equation}\label{eq:chord-lambda}
+ \lambda(\alpha,\beta)
+ =\frac{\sin^2\delta}{\cos^2\mu/a^2+\sin^2\mu}.
+\end{equation}
+For the two representative side types, formula \eqref{eq:chord-lambda}
+becomes
+\[
+ \lambda_{01}=\frac{a^2u^2}{1+a^2u^2},
+ \qquad
+ \lambda_{12}=\frac{(1-u)^2}{(1-u)^2/a^2+(1+u)^2}.
+\]
+Their equality is equivalent to
+\begin{equation}\label{eq:closure}
+ h(u,a)=u^4+(4a^2-2)u^3+2u-1=0.
+\end{equation}
+But \eqref{eq:parameters} says
+$4a^2u^3=(1-u)^3(1+u)$, and expanding this identity yields
+\eqref{eq:closure}.  Reflections in the coordinate axes carry the two
+representative sides to all eight sides, so every side is tangent to the one
+caustic \eqref{eq:caustic}.  Since the caustic is strictly inside the convex
+ellipse $E$, the contact on each chord line lies between its two intersections
+with $E$, hence on the open side segment.
+
+For completeness, the reflection law can be checked without invoking the
+general confocal correspondence.  At $P_1=(aC,S)$, equality of the tangential
+components of the incoming and outgoing unit directions is
+\begin{equation}\label{eq:reflection-unsquared}
+ \frac{2a^2u^2+1-u^2}{\sqrt{a^2u^2+1}}
+ =\frac{(1+u)\bigl(2a^2u+(1-u)^2\bigr)}
+ {\sqrt{a^2(1+u)^2+(1-u)^2}}.
+\end{equation}
+Both sides are positive.  After squaring and clearing the positive
+denominators, left square minus right square is
+\[
+ -a^2(1+u^2)^2h(u,a)=0.
+\]
+Thus \eqref{eq:reflection-unsquared} holds without an extraneous sign.  The
+axis vertices satisfy reflection by mirror symmetry, and coordinate
+reflections cover every remaining vertex.  The octagon is therefore an exact
+primitive one-winding billiard orbit with a single nondegenerate caustic.
+
+\subsection*{Finite antipedal vertices and zero signed area}
+
+Take $F_+=(c,0)$ and set
+\[
+ D_i=(P_i-F_+)\cross(P_{i+1}-F_+).
+\]
+The four representative determinants are
+\begin{align}
+D_0&=\frac{2u(a-c)}{1+u^2},
+&D_1&=\frac{(1-u)\bigl(a(1+u)-c(1-u)\bigr)}{1+u^2},\label{eq:dets}\\
+D_2&=\frac{(1-u)\bigl(a(1+u)+c(1-u)\bigr)}{1+u^2},
+&D_3&=\frac{2u(a+c)}{1+u^2}.
+\end{align}
+The remaining four occur in reverse reflected order.  Because
+$0<u<1$ and $a>c>0$, every determinant in \eqref{eq:dets} is strictly
+positive.  Hence all eight plus-focus intersections are unique and finite;
+central inversion gives the same conclusion for the minus focus.
+
+We give enough algebra to make the area certificate directly checkable.  For
+$n_i=P_i-F_+$ and $s_i=P_i\cdot n_i$, the line at $P_i$ has equation
+$X\cdot n_i=s_i$.  Solving two consecutive equations gives
+\begin{equation}\label{eq:intersection}
+ Q_i(F_+)=
+ \frac{s_{i+1}R(n_i)-s_iR(n_{i+1})}{n_i\cross n_{i+1}}.
+\end{equation}
+Substitute \eqref{eq:vertices} into \eqref{eq:intersection}, form the cyclic
+shoelace sum, and reduce using only
+\begin{equation}\label{eq:relations}
+ c^2=a^2-1,
+ \qquad 4a^2u^3=(1-u)^3(1+u).
+\end{equation}
+The exact result is
+\begin{equation}\label{eq:area-factor}
+ \Abar^*(F_+)
+ =\frac{a(u^2-2u-1)
+ \bigl(u^4-6u^3-2u^2-2u+1\bigr)}{4u^3}.
+\end{equation}
+For an explicit check that no forbidden cancellation creates the zero, before
+the reduction the rational denominator contains the strictly positive factor
+\[
+ (1+u^2)^2\bigl(4a^2u+(1-u)^2\bigr).
+\]
+Equation \eqref{eq:g} now makes \eqref{eq:area-factor} zero.  Finally,
+$P_{i+4}=-P_i$ and Theorem~\ref{thm:corrected} give
+\[
+ \Abar^*(F_-)=\Abar^*(F_+)=0.
+\]
+All intersections are finite, so the zero comes from signed shoelace
+cancellation in a self-overlapping polygon, not from a point at infinity or
+an undefined intermediate construction.  The quotient in
+\eqref{eq:source-problem} is exactly $0/0$.  This proves
+Theorem~\ref{thm:counterexample}.
+
+\begin{remark}[Why this does not prove a half-ray theorem]\label{rem:rays}
+The argument uses the complete lines \eqref{eq:line-param}.  If one instead
+selects, at every vertex, the half-ray with parameter $t\ge0$ (or reverses
+all of them), then at lines $0,1,4,7$ the two adjacent supporting-line
+intersections have opposite parameter signs.  No selected half-ray there
+contains both required adjacent vertices, so the cyclic antipedal polygon is
+not formed.  Central inversion preserves $t$ when a ray point exists; it does
+not create missing intersections.  Thus the source's unoriented word
+``rays'' requires a separate definitional repair and is outside the theorem.
+\end{remark}
+
+\section{Verification, priority, and limits}
+
+The proof above is analytic and exact.  Root isolation uses rational endpoint
+signs and monotonicity; cyclic order uses the isolating interval; caustic
+tangency and reflection use \eqref{eq:closure}; finiteness uses the positive
+determinants \eqref{eq:dets}; and the decisive zero is the factorization
+\eqref{eq:area-factor}.  Those arguments, rather than software output, carry
+the geometric theorem.
+
+As corroboration, a dependency-free standard-library program performs exact
+arithmetic in the quartic extension and verifies all eight outer-ellipse
+relations, all eight dual-caustic tangency equations, all sixteen finite
+supporting-line intersections, the central-inversion vertex map, and both
+zero signed areas.  It replays identically under ordinary and optimized
+Python.  A separate partial Lean~4 artifact kernel-checks the finite algebraic
+certificate but not the real-root embedding, positivity, open-segment
+geometry, unsquared reflection sign, cyclic order, primitivity, source
+semantics, or priority.  Accordingly, this paper does not claim a formal proof
+of the complete theorem.
+
+The literature boundary is equally specific.  Complete-line antipedal
+geometry and triangle area relations are classical
+\cite{Gallatly1910,Mitrea2010}.  Central symmetry supplies the focus-exchange
+mechanism \cite{Stachel2021}, and the source authors' focal-pedal proof is its
+closest published analogue \cite{ReznikGarciaKoiller2021}.  Their public media
+also show both regular-polygon zero-area phenomena and the experimental
+one-focus $N=6$, $a/b=2$ focal example just described
+\cite{Reznik2020Regular,Reznik2020N6Focus,ReznikMediaIndex}.
+No exact match was retrieved, through August 12, 2026, for the primitive
+noncircular focal $N=8$ simultaneous-zero certificate, its quartic, and the
+complete exact verification.  The accurate novelty statement is therefore
+only that this exact certificate \emph{appears new after that documented
+search}.
+
+No claim is made about a literal half-ray construction, the differently
+numbered journal item, unsigned area, odd periods, other-period zero
+existence, other caustics, a classification or uniqueness of the common-zero
+locus, or a second open problem.  Nor is the quotient assigned a removable
+value at $0/0$; doing so would define a regularized quantity different from
+the pointwise real quotient in \eqref{eq:source-problem}.
+
+\section*{Acknowledgments and computational disclosure}
+
+DannyExperiments initiated and directed the investigation, selected the
+problem, curated the evidence, and is the sole manuscript author.  An OpenAI
+ChatGPT Pro instance produced the frozen proof candidate; OpenAI Codex assisted with
+independent reconstruction, mathematical and literature audits, exact
+verification, limited formalization, and manuscript preparation.  No AI
+system is listed as an author.  These AI-assisted audits are not human peer
+review; responsibility for the manuscript remains with the named author.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}

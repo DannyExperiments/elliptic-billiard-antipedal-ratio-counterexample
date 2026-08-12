@@ -1,0 +1,76 @@
+# Public manifest
+
+Generated deterministically from `PUBLIC_ALLOWLIST.txt`.
+`SHA256SUMS.txt` additionally covers this manifest.
+
+| Path | Bytes | SHA-256 |
+|---|---:|---|
+| `.gitattributes` | 340 | `b44a2e9f0ebaf62ef1f5b18183435d4bfbaf6d4a4d5f414b48d7cc7a8254822a` |
+| `.github/workflows/README.md` | 1098 | `bb7895a127373e6d2733722eb814e264cedd120eec5ece71a5308f7d9a859fa2` |
+| `.github/workflows/lean-finite-certificate.yml` | 2093 | `db9a4864ca3a469b81584f1fc788389f10a3f8e42edf9d8dea4ce9325343f129` |
+| `.github/workflows/pdf.yml` | 1727 | `f8c5fc67dbba11f5a631afed47038b745f66d8b080f3363b14cc1bc6df760d2d` |
+| `.github/workflows/replay-exact-verifier.yml` | 1796 | `b2e165c5442f130eb0b312a97e15d929bae8db25482eea529f544c84f44845eb` |
+| `.github/workflows/verify.yml` | 489 | `c4de4fb8b1e621ecc24e49aab10124f58eb70bd8eeda59283e8255591d70b42b` |
+| `.gitignore` | 278 | `acc20638d0e472d4a070cb5bf18917d480bf92c790168a9cd1c92c0124f9781e` |
+| `AI_DISCLOSURE.md` | 795 | `41c6d7a1e187704d5cbebe2a2c6660d62b895131763fab33c724b007191ce82c` |
+| `CITATION.cff` | 484 | `27522dd48a29f307d4cc0c981e4a0e40644f077ec02534fcf57c91a3643e9930` |
+| `CITATION_STATUS.md` | 974 | `df084f5bb7466b62692a3702e2f40334308533ab402c7caf2d81a22cc030069b` |
+| `CLAIMS_EVIDENCE_MATRIX.md` | 3042 | `09a36673452c941066185f2d72983d01aa033e62b8903960e2b90bca17a831be` |
+| `CONTRIBUTING.md` | 694 | `7b89e3d450f94ce5153cdb7dfa7cd67f651c0f7e5e49fc28223a1f7c2a106686` |
+| `LICENSE_STATUS.md` | 556 | `eecb2de3f7794bed8e3328736676892902dfb41bfa2034c1d0ee1c9d6c4abef4` |
+| `PROBLEM_AND_PROOF.md` | 2411 | `e8258f4ea41ff1e3668390d56952b9e4110b94191ee756770033a739a4a5a127` |
+| `PROVENANCE.md` | 5288 | `61a2740b9a57f6f77382629f8d98f5c8de5fdc193192abd06b9f8e3029eaeca6` |
+| `PUBLIC_ALLOWLIST.txt` | 1926 | `df651d401bf1f4e25c0f928a8ecbb9ace684347bab77c3fcd67f0bf46b2e21dd` |
+| `README.md` | 5186 | `f061729f1fb982b9d680dd9e768434858079e667854c28ac90db389e9c5f67a4` |
+| `REPRODUCIBILITY.md` | 2556 | `4c332f4c9e9378982d6eec56f848e6c5f300667701c5d652879297613f81549b` |
+| `SECURITY.md` | 1034 | `d494728470d6ea9813fddb639ae086dae38e0a7fad4c6cf6f8192e5480a76234` |
+| `STATUS.md` | 3160 | `874a98a0eb58ce51ed2c095bb1f8e4a3ea245ae27a4d4b019a6a2d88016731ff` |
+| `audits/README.md` | 561 | `1dd272dcfdb869aa1712d16a100eb1bc90c8a1104be2696f1c5bdd806496fc88` |
+| `audits/public_safe_reports/IMPLICATIONS_SCOPE_SUMMARY.md` | 1672 | `9c619650b8ee74e20993a932ab111f7b6af16a8882f1bfddcf8ae1c2f203de5a` |
+| `audits/public_safe_reports/LITERATURE_STATUS_SUMMARY.md` | 1524 | `8c429c3f58b56a0620588deb452a2301fb832b2a1979818afec6fa008291ac88` |
+| `audits/public_safe_reports/MATHEMATICAL_AUDIT_SUMMARY.md` | 1345 | `3815642e4d6805cda4d4abe2dd56924f9148f6b9ee29326657e4939662c2677a` |
+| `canonical/CANONICAL_CLAIM.md` | 2121 | `363f98a31b67535c12caab6de24ad4c9339b82e2f48f66625bad838de64cf3ca` |
+| `canonical/DEPENDENCY_MAP.md` | 1519 | `23112b69b468e66b6d85049fb62e259e32e5c9af8e5f20608464aead181d948b` |
+| `canonical/README.md` | 636 | `75c92a2fc1fc764a41efd85a4899161b93503b1e2baa51e212e6c0cea8596d95` |
+| `canonical/SCOPE_LIMITATIONS.md` | 1086 | `4076dbbe3e50b6452121e568c263e8d1793cdf50595f452c1c246f9b8c9ace37` |
+| `evidence/N8_SUPPORTING_LINE_CERTIFICATE.zip` | 18877 | `b054bf76bd5d70e4b4e43b00c0bfd3f349cbfff9739b629aadac74f74ca30b07` |
+| `evidence/N8_SUPPORTING_LINE_CERTIFICATE.zip.sha256` | 101 | `d2924fa704d1b600b94220476a58c609760683a05fc1f27faf42be8b2306845e` |
+| `evidence/README.md` | 1073 | `a6c63b7b528d9104396e1e058af9992eaa6f2e5aabcd317126bf81c0429dd678` |
+| `formalization/README.md` | 743 | `3177ecdad1bda639f9611084e5b12d34437c18f557812cadd3ae158959c2bc54` |
+| `formalization/THEOREM_SCOPE.md` | 1477 | `416e1fb8b5738819eff534ac1279f06ffb40b0cb7936477e08ac929d4fd7351e` |
+| `formalization/aristotle/README.md` | 263 | `7c42b680bd3ba322f58052083c3019b2e363cc631dc7907fbd0ed8fe351fb076` |
+| `formalization/lean/AXIOM_REPORT.txt` | 976 | `de0e34c2b69249bd703069c74c91b37477f2c12f45d58bba0c8fc59458fa90a7` |
+| `formalization/lean/AxiomAudit.lean` | 583 | `3a4e1e6436d05734415d4f7fc2077e771e553c4e31d1c1e0a16f430bcf91d190` |
+| `formalization/lean/K607FiniteCertificate.lean` | 14262 | `93981c7537d99fa0db6b2389c03bffb17dda2c7cf26fc0437bdf191c883945f8` |
+| `formalization/lean/README.md` | 666 | `496e283752e6832a88e57b8bebcb981539672a9839bd7a5453a4b95288377ce6` |
+| `formalization/lean/SCOPE_BOUNDARY.md` | 3132 | `6351c297ade04ac62ce7bac30b89b49af03989a2b520c22a88bb841481837c40` |
+| `formalization/lean/lake-manifest.json` | 159 | `67850569f23850f50bc5bcece763d7a5e429364df46eade38b81a5f84e0202b4` |
+| `formalization/lean/lakefile.toml` | 139 | `4f7ba5ff9bdeaad36f6c6046d23eb83deab5a144bfdcebbd9805818cb87dead2` |
+| `formalization/lean/lean-toolchain` | 25 | `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325` |
+| `paper/BUILD.md` | 1693 | `3162d9383364c86dd2483b6c573bcf4966e3a900a85b358936827ca022964f3b` |
+| `paper/BUILD_STATUS.md` | 657 | `675d850741d9cbabf161e72b564a7ee4afc9cb5b9a3345bed49be83ac12ab134` |
+| `paper/CLAIM_SCOPE_AND_LIMITATIONS.md` | 3091 | `870d4ab842470ebc757cd5ac78c9932304520669771a7527ecfedfb84a700312` |
+| `paper/MANIFEST.md` | 2951 | `b56fc4d13530b6b9fe3d3b10561c38ac4fc16d59e9a07324c256b66c811b424e` |
+| `paper/README.md` | 1011 | `a912c2714cdb99d9fe38370d4ef6cb810e479cabbef8f8b4ec0acca5fcd486b7` |
+| `paper/SHA256SUMS.txt` | 512 | `b13a369a74f49e386841547252f6b80dabd987e2db45c801492d67e441347a54` |
+| `paper/SHA256SUMS.txt.sha256` | 81 | `93db4b5b18697acd179382b5c220165670e16b9c2cfa0f833f2d6f7626eaadbc` |
+| `paper/SOURCE_TO_CANONICAL_COMPARISON.md` | 4889 | `56f876c9a9d35b2c51b7605b9af6de8fbec84aa78dfe270baad5bb5e5e2031e5` |
+| `paper/manuscript.tex` | 19180 | `972dcf53662ce94efcf56b7f6ccee0a8db30e7a0dcf7e74f6033e22aab40584e` |
+| `paper/references.bib` | 4481 | `6ab2dd7504ca52f188549c2cc255a0adb9859b2f6e658fdae3febe6a04c53d62` |
+| `release/HUMAN_RELEASE_CHECKLIST.md` | 659 | `a79911fb82561996b69fc4e386a2e403df975bc2fc9a61467621ef80ad08b42b` |
+| `release/PRIVATE_BOOTSTRAP.md` | 1152 | `18a50c676378537c32de8527ec323865545fa85421c162e3c2d53b0032a791bf` |
+| `release/README.md` | 513 | `62d7468dc757b9243393cdde890c69ed4568572fb12b24e83c1af482ccaebb6b` |
+| `release/RELEASE_GATES.json` | 916 | `7874e02fe4e180ae24aa186d60a55aec4d98a493379f881a66b455c64978f9fa` |
+| `release/RELEASE_NOTES_DRAFT.md` | 450 | `2b93eef933f6cc4083f0e688b74b28d8c01951f11f3bed645139bf55d0b24f7d` |
+| `release/WORKFLOW_ACTIVATION.md` | 781 | `3d8a4ca4112767058c3fd6cb2d621f18575adc33be70ab2fa2cdce2b3dc47c90` |
+| `scripts/freeze_manifest.py` | 3410 | `aa1fc077a85917fff44dc22637b1aa22b8e77477f657b74423e7fa241737d9a5` |
+| `scripts/verify.sh` | 163 | `53318ac2a4cd475fd9befc8ca67b2d4f9d5b65da193d3040624e66665f4314e4` |
+| `scripts/verify_repository.py` | 13467 | `cf829000500b4dbad6a4c76960257448d10cb8a2909f6781a3e936b77a8cfe8a` |
+| `verification/EXPECTED_K607_STDLIB.txt` | 504 | `8db0d193ef6820c9ae10dcd4ecb4004d3091522f67ee716ad4da3f7b17c9c64a` |
+| `verification/README.md` | 1232 | `1e1c100528f66ea276f120eadf518eea8bea11eb059aa1a87993535340751e60` |
+| `verification/REPLAY_ACTUAL.txt` | 504 | `8db0d193ef6820c9ae10dcd4ecb4004d3091522f67ee716ad4da3f7b17c9c64a` |
+| `verification/REPLAY_RECEIPT.md` | 1208 | `a749af768f1caa87706e79bfdafddbbe5f5b22441122e1fe7846ca2c4a3bb1cd` |
+| `verification/data/README.md` | 172 | `46bf9b102bddddaa3d1517244d750cd01e915c396fc14def7d7bff58fb9d2b17` |
+| `verification/logs/README.md` | 172 | `a390d35be2edcb7d4216e08d3077dc64ca13966d0e6afec8c4d48e9a64c174db` |
+| `verification/src/README.md` | 147 | `bf34f809dac80d9af33f00fd35ae24db2913d153d79b89144401bc60242ecda1` |
+| `verification/verify_k607_stdlib.py` | 14422 | `23a83b0637a20609179fc9e6418fd860a34b11984b12754add8b3eed36c4ed3d` |

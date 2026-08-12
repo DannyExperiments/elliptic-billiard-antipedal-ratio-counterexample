@@ -1,0 +1,55 @@
+name: PDF build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  clean-pdf-build:
+    name: Rebuild manuscript PDF
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository without retaining credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require the frozen manuscript sources
+        run: |
+          set -euo pipefail
+          test -s paper/manuscript.tex
+          test -s paper/references.bib
+          sha256sum -c SHA256SUMS.txt
+
+      - name: Compile manuscript
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b
+        with:
+          root_file: manuscript.tex
+          working_directory: paper
+          args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
+
+      - name: Reject unresolved references and layout warnings
+        run: |
+          set -euo pipefail
+          test -s paper/manuscript.pdf
+          test -f paper/manuscript.log
+          if grep -Eq 'There were undefined references|Citation .* undefined|Reference .* undefined|multiply defined|Overfull \\hbox|Overfull \\vbox|Underfull \\hbox|Underfull \\vbox|^!' paper/manuscript.log; then
+            exit 1
+          fi
+
+      - name: Upload manuscript and build log for independent inspection
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: manuscript-pdf
+          path: |
+            paper/manuscript.pdf
+            paper/manuscript.log
+          if-no-files-found: error
+          retention-days: 7

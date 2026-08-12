@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Citation metadata is provisional until the immutable release gate passes."
+title: "A domain counterexample for a focal-antipedal area ratio"
+type: software
+authors:
+  - name: "DannyExperiments"
+preferred-citation:
+  type: article
+  title: "An Exact Zero of Focal Antipedal Areas"
+  authors:
+    - name: "DannyExperiments"
+  year: 2026
+keywords:
+  - elliptic billiards
+  - Poncelet polygons
+  - antipedal polygons
+  - signed area
+  - domain counterexample

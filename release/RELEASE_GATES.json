@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_FAIL_CLOSED",
+  "gates": {
+    "mathematical_audit_pass": true,
+    "implications_scope_pass": true,
+    "priority_three_lanes_adjudicated": true,
+    "canonical_proof_selected": true,
+    "canonical_proof_public_integration": true,
+    "public_evidence_integrated": true,
+    "verifier_replay_pass": true,
+    "manuscript_integrated": true,
+    "manuscript_clean_build": false,
+    "manuscript_visual_preflight": false,
+    "formalization_status_finalized": true,
+    "privacy_and_rights_final_pass": false,
+    "human_authorship_approved": true,
+    "human_license_approved": true,
+    "human_ai_disclosure_approved": false,
+    "human_visibility_approved": false,
+    "human_doi_metadata_approved": false,
+    "human_external_notice_approved": false,
+    "remote_created": false,
+    "immutable_release_created": false,
+    "doi_deposited_and_resolving": false
+  }
+}

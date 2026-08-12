@@ -1,0 +1,58 @@
+name: Check partial finite exact certificate in Lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-finite-certificate:
+    name: Lean finite exact supporting-line certificate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository without retaining credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify frozen public integration inventory
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Install pinned Lean toolchain and build
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: formalization/lean
+          build: true
+          leanchecker: false
+
+      - name: Kernel-check the compiled finite certificate
+        working-directory: formalization/lean
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.30.0"
+          test -s .lake/build/lib/lean/K607FiniteCertificate.olean
+          lake env leanchecker K607FiniteCertificate
+
+      - name: Enforce the exact axiom report
+        working-directory: formalization/lean
+        run: |
+          set -euo pipefail
+          lake env lean AxiomAudit.lean > /tmp/K607_AXIOM_REPORT.actual.txt
+          diff -u AXIOM_REPORT.txt /tmp/K607_AXIOM_REPORT.actual.txt
+
+      - name: Reject proof escapes and unbounded decision settings
+        run: |
+          set -euo pipefail
+          if rg -n --glob '*.lean' '\b(sorry|admit|axiom|native_decide|unsafe)\b' formalization/lean; then
+            echo 'Forbidden Lean proof escape, user axiom, native oracle, or unsafe declaration found.' >&2
+            exit 1
+          fi
+          if rg -n --glob '*.lean' 'set_option[[:space:]]+maxHeartbeats[[:space:]]+0' formalization/lean; then
+            echo 'Unlimited Lean heartbeat setting found.' >&2
+            exit 1
+          fi
+          rg -n 'decide \+kernel' formalization/lean/K607FiniteCertificate.lean
