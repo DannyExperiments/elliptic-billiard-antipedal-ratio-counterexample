@@ -1,0 +1,5 @@
+1d144b8a88e9ff220220e95bbd293d64675a5818cb303426818bb4fca3144d82  CITATION.cff
+507c6b33d60a1bf2cff00e80c36b008a637bd390fe37f6c8aed18e593545af3b  elliptic-billiard-antipedal-ratio-counterexample-public-evidence-v1.0.0.zip
+02c377df84aa9f1d94bbd1d1eee4ce56fc3fe9f9330bf5b31005a20601678a47  elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.pdf
+032ece89a0158b9eb7537ae085b0e1f2159607aaf6817f2a1bf57bf305e06ba0  elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.tex
+6ab2dd7504ca52f188549c2cc255a0adb9859b2f6e658fdae3febe6a04c53d62  references.bib

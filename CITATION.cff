@@ -2,6 +2,9 @@ cff-version: 1.2.0
 message: "If you use this research repository, cite it using the metadata below."
 title: "A domain counterexample for a focal-antipedal area ratio"
 type: software
+version: 1.0.0
+date-released: 2026-08-12
+repository-code: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"
 authors:
   - name: "DannyExperiments"
 preferred-citation:
@@ -10,6 +13,7 @@ preferred-citation:
   authors:
     - name: "DannyExperiments"
   year: 2026
+  url: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"
 keywords:
   - elliptic billiards
   - Poncelet polygons

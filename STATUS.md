@@ -2,7 +2,7 @@
 
 Status date: 2026-08-12.
 
-Current repository state: `HUMAN_RELEASE_APPROVED__PRIVATE_PR_FINAL_CI_REQUIRED`.
+Current repository state: `PRIVATE_MAIN_GREEN__PUBLIC_SETTINGS_CONFIRMATION_PENDING`.
 
 Public release gate: `BLOCKED_FAIL_CLOSED`.
 
@@ -20,15 +20,15 @@ Public release gate: `BLOCKED_FAIL_CLOSED`.
 | Peer review | `NOT_OBTAINED` | AI mathematical audits are not human peer review. |
 | Authorship | `DANNYEXPERIMENTS_NO_AFFILIATION` | Explicit staging convention; final citation metadata remains subject to release review. |
 | License | `ALL_RIGHTS_RESERVED` | No repository-wide reuse license is granted. |
-| Remote/publication | `PUBLIC_TRANSITION_APPROVED__PRIVATE_PR_OPEN` | The human owner approved the final title, disclosure, canonical evidence, partial-Lean scope, public visibility, immutable Version 1.0.0 release, and DOI metadata/deposit. Private draft PR #1 remains the exact review surface. Its previous exact head `214a8c3001bbfe68b231b6158dd7904b5ac196ba` passed all four workflows (runs `31577655770`, `31577655875`, `31577655948`, and `31577655760`). The approval-only head must pass the same four checks before merge. External problem-site notice remains separately unapproved. |
+| Remote/publication | `PRIVATE_MAIN_GREEN__PUBLIC_TRANSITION_APPROVED` | PR #1's approval head `320cd6a719b8b0a8307608217a91dd29acae7142` passed all four exact-head workflows and was squash-merged to private `main` at `614152f05d1b6e9005958d7566740b1205a14b25`. The post-merge runs all passed: repository integrity `31614190306`, exact replay `31614190363`, PDF build `31614190281`, and partial Lean `31614190259`. Protected public visibility, immutable Version 1.0.0 publication, and DOI deposit are approved but not yet claimed. External problem-site notice remains separately unapproved. |
 
 ## Required next gates
 
-1. Verify all four checks are green on the live exact PR head immediately
-   before merge.
-2. Merge only after the approval-only exact head is green; then configure and
-   verify protected-main checks before visibility, badges, or immutable-release
-   work.
+1. Configure and re-read the exact protected-`main` rule, enable release
+   immutability, switch visibility to public, and anonymously verify the
+   repository and all four badges.
+2. Merge the deterministic release-asset commit only after its exact public PR
+   head passes all four required checks.
 3. Publish and hash-check the immutable release, then deposit its exact bytes
    to Zenodo and add DOI metadata through a protected metadata-only change.
 4. Keep any external problem-site notice blocked until separately approved.

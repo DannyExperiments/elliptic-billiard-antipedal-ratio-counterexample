@@ -57,9 +57,12 @@ paper/references.bib
 release/BADGE_ACTIVATION.md
 release/BRANCH_PROTECTION.md
 release/DOI_DEPOSIT.md
+release/EVIDENCE_BUNDLE.sha256
+release/EVIDENCE_BUNDLE.zip
 release/HUMAN_RELEASE_CHECKLIST.md
 release/PRIVATE_BOOTSTRAP.md
 release/README.md
+release/RELEASE_ASSET_SHA256SUMS.txt
 release/RELEASE_GATES.json
 release/RELEASE_NOTES_v1.0.0.md
 release/WORKFLOW_ACTIVATION.md
