@@ -9,6 +9,10 @@ The later authorless-template repair head
 and its current six-page PDF passed clean-build, source-parity, blank-metadata,
 deep-privacy, and full visual preflight. A final integration-head CI pass is
 still required after committing those accepted PDF bytes and receipts.
+That integration head is
+`edcc9d4b68e0318e05589c1caa6286b6f91473aa`; all four workflows passed and
+its rebuilt text and all six page renders matched. Only a final receipt-head
+regression pass remains before the private candidate is merge-ready.
 No public repository, release tag, immutable release, archive deposit, or DOI
 exists for this candidate.
 

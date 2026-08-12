@@ -57,7 +57,11 @@ source parity, clean-log checks, blank identity metadata, deep privacy scans,
 and complete 180-DPI rendered-page inspection. The accepted PDF SHA-256 is
 `02c377df84aa9f1d94bbd1d1eee4ce56fc3fe9f9330bf5b31005a20601678a47`.
 Template parity is therefore complete at the manuscript-artifact layer; the
-later integration commit must still repeat all four workflows.
+later integration commit
+`edcc9d4b68e0318e05589c1caa6286b6f91473aa` repeated all four workflows
+successfully. Its extracted text and all six rendered pages were identical to
+the accepted artifact; blank-identity metadata and deep privacy scans passed.
+A final receipt-only head remains subject to the same four-check policy.
 
 Release-asset files and a write-enabled publishing workflow are deliberately
 not treated as present-tense accomplishments. They are built only after the

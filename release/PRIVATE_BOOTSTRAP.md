@@ -41,6 +41,16 @@ it passed complete source, log, metadata, privacy, and six-page visual audit.
 The commit integrating those accepted bytes and their receipt must repeat all
 four checks before merge.
 
+That PDF-integration commit is
+`edcc9d4b68e0318e05589c1caa6286b6f91473aa`, exact tree
+`6f5e0d615c63794539cfca403a4b0722d2b57106`. It passed all four workflows:
+repository integrity `31576465722`, exact replay `31576465684`, partial Lean
+`31576465671`, and PDF build `31576465662`. Artifact `9133432516` had ZIP
+SHA-256 `4325fd2d4bfad54ea219026093a3c742d91980eb8f2729ea514aef327229dc4c`.
+Its extracted PDF text and all six 180-DPI page renders matched the accepted
+artifact exactly; identity metadata and privacy scans passed. A receipt-only
+head must now keep all four checks green before merge.
+
 After the reviewed tree reaches `main`, branch protection must require pull
 requests, these four unique up-to-date checks, conversation resolution, and
 linear history, with no force pushes, deletion, or administrator bypass.

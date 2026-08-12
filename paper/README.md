@@ -29,4 +29,6 @@ inspection, and visual inspection of all six 180-DPI rendered pages.
 `PDF_PREFLIGHT.md` binds the source, workflow, artifact, log, PDF, extracted
 text, and rendered-page hashes. No mathematical text changed during the
 authorless-template or running-header repairs. The later commit integrating
-this PDF must repeat all four workflows before merge.
+this PDF passed all four workflows; its rebuild had byte-identical text and
+pixel-identical renders on all six pages. The final receipt-only head must
+repeat all four workflows before merge.
