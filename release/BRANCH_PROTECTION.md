@@ -1,10 +1,7 @@
-# Protected-main plan
+# Protected-main receipt
 
-The repository remains private and Draft PR #1 is the current review surface.
-After the accepted candidate reaches `main`, configure and re-read the live
-rule before any public transition.
-
-The protected-main rule must require:
+The public repository's live `main` rule (GitHub rule ID `81661500`) was
+re-read after the visibility transition. It requires:
 
 - changes through pull requests;
 - branches to be up to date before merge;
@@ -16,7 +13,7 @@ The protected-main rule must require:
 - no force pushes or branch deletion; and
 - no administrator bypass.
 
-Required workflows must run on every pull request without path filters that
-could leave checks permanently pending. Branch protection is not inferred from
-workflow files; it must be verified against the live GitHub rule after it is
-configured.
+The rule applies to public `main`. Required workflows run on every pull request
+without path filters that could strand a required check. GitHub release
+immutability is also enabled. Branch protection and immutability are live
+repository settings, not conclusions inferred from workflow files.

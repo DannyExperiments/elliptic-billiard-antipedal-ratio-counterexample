@@ -47,19 +47,26 @@ Build and kernel-check the partial finite Lean certificate:
 
 This pins Lean 4.30.0 and uses no external Lake packages.
 
-The default command is intentionally fail closed:
+The default command evaluates the completed release-and-DOI gate:
 
 ```bash
 bash scripts/verify.sh
 ```
 
-Until the remaining human approvals, immutable release, and DOI are completed,
-it must exit nonzero with
-`PUBLIC_RELEASE_GATE: BLOCKED`.
+On the post-DOI closure tree it must exit zero with
+`PUBLIC_RELEASE_GATE: RELEASE_AND_DOI_CLOSED`. External problem-page notice is
+a separate optional communication gate and remains false without blocking this
+release closure.
 
 GitHub CI deliberately runs the narrower `--integrity-only` mode. That green
-check establishes the candidate tree's exact inventory and frozen bytes; it
-does not claim that post-release and DOI-closure gates have already passed.
+check establishes the tree's exact inventory and frozen bytes; the default
+local command separately checks the recorded release-and-DOI closure state.
+
+Version 1.0.0 is immutable. Post-release DOI metadata in current `README.md`,
+`STATUS.md`, and `CITATION.cff` intentionally differs from the copies inside
+the released evidence ZIP. `scripts/build_evidence_bundle.py --check` therefore
+pins the published evidence bundle, sidecar, and release-asset ledger by their
+frozen hashes instead of silently rebuilding them from current-main metadata.
 
 To regenerate the deterministic manifest and checksum ledger after an
 allowlisted edit:

@@ -21,7 +21,7 @@
 | The full headline theorem is Lean verified | The integrated artifact is only a partial finite certificate and omits real-geometric bridges | **False; forbidden** |
 | A partial finite exact certificate passed Lean checking | `formalization/lean/` plus pinned toolchain, exact axiom report, `leanchecker`, and no-escape gate | **Integrated and locally rebuilt; scope remains partial** |
 | Human specialist peer review occurred | No specialist report present | **False; forbidden** |
-| An immutable release or DOI exists | None | **False; forbidden** |
+| An immutable release and DOI exist | GitHub release `v1.0.0` at `d577ee6b199f5954dc74893834820df2656d56cb`; release ID `369384507`; version DOI `10.5281/zenodo.21907170`; concept DOI `10.5281/zenodo.21907169`; six-file cross-archive byte comparison | **Verified public release metadata; not peer review or proof expansion** |
 
 No public claim may be strengthened without an exact artifact reference and the
 appropriate mathematical, priority, formalization, or human gate.

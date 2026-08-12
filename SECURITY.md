@@ -18,5 +18,9 @@ The PDF workflow uses the same SHA-pinned LaTeX action audited in the
 comparison repositories, binds its TeX Live container to an exact OCI digest,
 and uploads only the manuscript PDF and build log. Staged workflows use pinned
 action commits, checkout with credential persistence disabled, and read-only
-content permissions. The repository release gate remains fail closed until
-all release gates are explicitly satisfied.
+content permissions. The offline repository verifier fails closed on recorded
+release metadata and tree-integrity drift; it does not query GitHub, DOI.org,
+Zenodo, or DataCite and does not substitute for the separate replay, PDF, and
+Lean workflows. Live release, DOI-resolution, and workflow state are recorded
+from independent external checks in the release receipts. External
+problem-page notice remains a separate optional communication action.

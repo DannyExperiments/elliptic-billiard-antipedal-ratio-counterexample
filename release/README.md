@@ -1,23 +1,13 @@
-# Release staging
+# Release assets
 
-PR #1's exact approval head
-`320cd6a719b8b0a8307608217a91dd29acae7142` passed all four workflows and was
-squash-merged to private `main` at
-`614152f05d1b6e9005958d7566740b1205a14b25`. All four post-merge workflows
-passed: repository integrity `31614190306`, exact replay `31614190363`, PDF
-build `31614190281`, and partial Lean `31614190259`. The accepted manuscript
-and PDF passed source parity, blank-metadata and deep-privacy checks, and full
-visual inspection. The human owner approved the final title, public evidence,
-disclosure, partial-Lean scope, public visibility, immutable Version 1.0.0
-release, and DOI deposit. No tag, immutable release, archive deposit, or DOI
-exists yet; external notice remains separately unapproved.
+Immutable GitHub Version 1.0.0 was published on 2026-08-12 from protected-main
+commit `d577ee6b199f5954dc74893834820df2656d56cb` as release ID `369384507`:
 
-The mature-repository release layout is staged in this directory:
-`RELEASE_NOTES_v1.0.0.md`, `BADGE_ACTIVATION.md`,
-`BRANCH_PROTECTION.md`, `DOI_DEPOSIT.md`, and the human checklist. The
-deterministic public-evidence builder is `scripts/build_evidence_bundle.py`.
-Its final ZIP, sidecar, and release-asset ledger must rebuild byte-for-byte
-before the Version 1.0.0 tag is created.
+<https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/releases/tag/v1.0.0>
+
+The release is archived at version DOI `10.5281/zenodo.21907170`; concept DOI
+`10.5281/zenodo.21907169` represents all Zenodo versions. Raw/private evidence
+is excluded.
 
 The five payloads named by `RELEASE_ASSET_SHA256SUMS.txt` are:
 
@@ -26,15 +16,17 @@ The five payloads named by `RELEASE_ASSET_SHA256SUMS.txt` are:
 - `paper/manuscript.tex`, staged as
   `elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.tex`;
 - `paper/references.bib`, staged as `references.bib`;
-- `CITATION.cff`, staged as `CITATION.cff`; and
+- the pre-DOI `CITATION.cff`, staged as `CITATION.cff`; and
 - `release/EVIDENCE_BUNDLE.zip`, staged as
   `elliptic-billiard-antipedal-ratio-counterexample-public-evidence-v1.0.0.zip`.
 
-The ledger itself is the sixth immutable release asset.
+The ledger itself is the sixth immutable asset. All six files were anonymously
+re-downloaded from GitHub and Zenodo and independently hash-checked; the
+evidence ZIP passed integrity testing. `RELEASE_ASSET_SHA256SUMS.txt` remains
+the frozen release ledger. The root `CITATION.cff` now contains later DOI
+metadata, so it intentionally differs from the immutable release asset.
 
-`RELEASE_GATES.json` is machine-read by the repository verifier. Any false
-gate keeps the default verification command blocked. Human approvals are
-explicit fields and cannot be inferred from a successful build or audit.
-
-Workflow and badge activation must occur only after the matching local gate
-has passed and the proposed public action has been explicitly approved.
+All four scoped workflows pass on protected public `main`, branch protection
+and release immutability remain enabled, and external problem-page notice
+remains pending separate approval. `RELEASE_GATES.json` records
+`RELEASE_AND_DOI_CLOSED` while leaving that optional communication gate false.

@@ -1,19 +1,20 @@
-# Badge activation plan
+# Badge activation receipt
 
-No badge is active while the repository is private. Public visibility is now
-approved; after protected public `main` and fresh anonymous checks, the maximum
-authorized badge set is:
+The public `main` README displays exactly five scoped badges:
 
 - repository integrity;
 - exact standard-library replay;
-- PDF build; and
-- `Partial finite exact certificate (Lean)`.
+- PDF build;
+- `Partial finite exact certificate (Lean)`; and
+- the concept DOI `10.5281/zenodo.21907169`.
 
-The Lean label must remain partial. No badge may say that the full theorem,
-counterexample, real-geometric bridge, novelty claim, or manuscript is Lean
-verified. No DOI badge may be added until the version and concept DOI records
-resolve to the exact archived release.
+The four workflow labels describe only their declared checks. In particular,
+the Lean label remains partial and does not claim that the full theorem,
+real-geometric bridge, novelty determination, or manuscript is Lean verified.
+The DOI badge targets the concept DOI; the version DOI is linked separately in
+the release text and citation metadata.
 
-Every badge image and target URL must be anonymously tested after activation.
-A green workflow is evidence about its declared scope, not peer review or
-publication.
+All workflow badge images and target pages, both DOI records, and the Zenodo
+record must remain anonymously reachable after the protected metadata merge.
+A green workflow is scoped reproducibility evidence, not peer review or a new
+mathematical claim.

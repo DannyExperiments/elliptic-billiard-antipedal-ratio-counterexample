@@ -1,23 +1,23 @@
-# DOI deposit plan
+# DOI deposit receipt
 
-No DOI exists. The human owner authorized a deposit after the immutable
-GitHub `v1.0.0` release and exact public-asset verification pass.
+The immutable GitHub Version 1.0.0 release was published on 2026-08-12 from
+commit `d577ee6b199f5954dc74893834820df2656d56cb`. Before deposit, exact-title,
+repository, DOI, and authenticated-dashboard searches found no matching
+published record or draft.
 
-After an immutable GitHub `v1.0.0` release is published and anonymously
-re-downloaded, the deposit lane must:
+Zenodo record <https://zenodo.org/records/21907170> contains exactly the six
+immutable GitHub release assets. Metadata is Software, Version 1.0.0,
+publication date 2026-08-12, public access, organizational creator
+`DannyExperiments` with no affiliation, English, and an all-rights-reserved
+copyright statement. The exact GitHub release is related as `IsIdenticalTo`.
 
-1. search Zenodo, DataCite, Crossref, DOI.org, and the authenticated deposit
-   dashboard for duplicate title, repository, version, or draft records;
-2. use the actual GitHub publication date and exact Version 1.0.0 bytes;
-3. upload only the six immutable release assets and verify each SHA-256;
-4. record `DannyExperiments` as an organizational creator with no affiliation;
-5. use software type, version `1.0.0`, public access, and the all-rights-reserved
-   rights statement, without inventing an open-source license;
-6. link the exact GitHub release as the identical/supplementary public object;
-7. compare the final metadata byte-for-byte with the approved release fields;
-   and
-8. after publication, verify version and concept DOI resolution, DataCite
-   findability, exact file inventory, anonymous downloads, and byte parity.
+- Version DOI: <https://doi.org/10.5281/zenodo.21907170>
+- Concept DOI: <https://doi.org/10.5281/zenodo.21907169>
 
-Only after those checks may current-main `CITATION.cff` and the README receive
-version/concept DOI metadata through a protected metadata-only pull request.
+Both DOI records resolve and DataCite reports both as findable. Every Zenodo
+file was anonymously re-downloaded and SHA-256 compared with the GitHub
+release; all six matched, and the evidence ZIP passed its integrity test.
+
+Current-main DOI metadata is a protected post-release update. It does not alter
+the immutable tag, mathematical paper, proof, PDF, evidence bundle, or any
+release asset. External problem-page notice remains separately unapproved.

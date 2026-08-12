@@ -1,15 +1,17 @@
-# Workflow and badge activation
+# Workflow activation
 
-The fail-closed integrity/release workflow, bounded exact-replay workflow,
-partial-Lean workflow, and clean PDF-build workflow are staged. The latter
-three validate or build exact artifacts but do not authorize public release;
-the release workflow remains expected to block while release gates are open.
+The public repository runs four scoped workflows on every pull request and
+push: repository integrity, exact standard-library replay, partial Lean finite
+certificate, and clean PDF build. They use pinned action/toolchain identities,
+read-only permissions, and no path filters.
 
-Do not add a passing mathematical, replay, PDF, Lean, release, or DOI badge
-until the exact corresponding artifact exists on the public branch and its
-gate has been independently rechecked. Badge target, displayed state, and
-public evidence must agree.
+All four passed on exact release commit
+`d577ee6b199f5954dc74893834820df2656d56cb`: repository integrity run
+`31617801307`, exact replay run `31617800526`, PDF run `31617800543`, and
+partial Lean run `31617801245`. A protected post-DOI metadata change must pass
+the same four checks before merge.
 
-Future workflow additions require source review, immutable action pins, least
-privilege, no dependency fetching unless separately approved, and successful
-local dry runs before activation.
+These workflows validate exact repository bytes and their declared artifacts.
+They do not authorize mathematical scope expansion, establish novelty, replace
+human peer review, or turn the partial Lean certificate into a formalization of
+the full theorem.

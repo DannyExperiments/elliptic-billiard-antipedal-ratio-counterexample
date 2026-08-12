@@ -1,23 +1,21 @@
 # Citation status
 
-`CITATION.cff` records the approved authorship convention
-`DannyExperiments`, no affiliation, the approved preferred-citation title,
-Version 1.0.0, publication date 2026-08-12, and the exact repository URL. It
-deliberately omits a DOI until the immutable GitHub release is published,
-anonymously re-downloaded, deposited, and independently verified.
+`CITATION.cff` records the approved `DannyExperiments` authorship convention,
+no affiliation, the approved preferred-citation title, Version 1.0.0,
+publication date 2026-08-12, and the exact repository and release URLs.
 
-Before an immutable release, recheck the approved metadata against:
+The immutable GitHub Version 1.0.0 release is archived at version DOI
+`10.5281/zenodo.21907170`; concept DOI `10.5281/zenodo.21907169` represents all
+Zenodo versions. Both resolve and are DataCite-findable. The six Zenodo files
+were anonymously re-downloaded and byte-matched to the six immutable GitHub
+release assets.
 
-- final paper title;
-- author ordering and spelling;
-- any affiliation or identifier;
-- repository URL, version, and release date;
-- concept and version DOI metadata; and
-- preferred-citation fields.
+The root `CITATION.cff` now contains the post-release DOI metadata. It therefore
+intentionally differs from the pre-DOI `CITATION.cff` frozen inside the
+immutable release and public-evidence bundle. The released file remains bound
+by `release/RELEASE_ASSET_SHA256SUMS.txt`; current-main metadata does not mutate
+or supersede those archived bytes.
 
-No DOI is added until it resolves to an archive whose assets match the audited
-release hashes.
-
-Integrated exact-verifier and partial-Lean checks improve reproducibility but
-do not themselves create a citable release or justify a DOI before the
-immutable-release and archive-verification gates pass.
+The DOI, exact replay, and partial-Lean checks improve citability and
+reproducibility. They do not constitute human peer review or full formal
+verification of the real-geometric theorem.
