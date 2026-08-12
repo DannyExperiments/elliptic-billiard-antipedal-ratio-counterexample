@@ -68,7 +68,8 @@ row `k_607` evaluates to the undefined expression `0/0` at an admissible
 `N=8` phase. This is a domain counterexample. It is not a defined nonunit
 ratio and not a counterexample to signed-area equality.
 
-The exact coordinate proof, certificate, and independent replay are not yet
-present in this repository. Public release remains blocked until those
-artifacts are integrated and independently verified.
-
+The exact coordinate proof, deterministic certificate archive, independent
+standard-library replay, and partial finite Lean certificate are present and
+independently checked in their stated scopes. Public release remains blocked
+on the remaining human, protected-main, immutable-release, and DOI gates; it
+is not blocked on absence of mathematical or finite-certificate artifacts.

@@ -27,7 +27,8 @@ Its axiom audit reported only `propext`, `Classical.choice`, and `Quot.sound`.
 - source interpretation, priority, or publication claims; and
 - the full named-problem resolution.
 
-The inspected files are integrated and rebuilt, but this local uncommitted tree
-must not display a Lean badge. After a separately authorized public push and a
-green remote workflow, the maximum accurate description is “Partial finite
+The inspected files are integrated and rebuilt, and the private draft PR's
+exact-head Lean workflow passes. No badge is authorized while the repository
+remains private. After an explicitly authorized public transition and a green
+public-`main` workflow, the maximum accurate description is “Partial finite
 exact certificate (Lean),” not “Lean-verified counterexample.”

@@ -50,9 +50,11 @@ segments to a nondegenerate confocal caustic. All sixteen supporting-line
 intersections are finite, while both focal signed antipedal areas equal zero.
 Thus the source quotient is `0/0` at that phase.
 
-The exact coordinate certificate and its independent public replay are not yet
-integrated in this staging repository. Until they are, this document is a
-public-safe scope summary rather than a self-contained release proof.
+The exact coordinate certificate, its fail-closed standard-library replay,
+and the strictly scoped partial Lean certificate are integrated in this
+public-safe candidate tree. The analytic manuscript remains the proof of the
+real-geometric and domain statements; the executable artifacts verify only
+their explicitly documented finite exact interfaces.
 
 ## What is and is not answered
 
@@ -61,4 +63,3 @@ semantics through a domain counterexample and corrected identity. It does not
 prove a literal half-ray result, an unsigned-area result, a general zero-locus
 classification, zeros at other periods or caustics, a neighboring invariant,
 the differently formulated journal row, or another named open problem.
-

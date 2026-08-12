@@ -66,5 +66,7 @@ artifact replaces the analytic proof.
 
 ## Authorship and identity
 
-The manuscript author is `DannyExperiments`, with no affiliation. AI systems
-are disclosed as tools and are not authors.
+The mathematical article is authorless and has no affiliation. Repository and
+preferred-citation authorship are recorded as `DannyExperiments` in the root
+`CITATION.cff`. AI systems are disclosed as tools and are not authors or human
+peer reviewers.

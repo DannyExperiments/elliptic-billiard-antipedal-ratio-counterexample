@@ -2,6 +2,14 @@
 
 Audit date: 2026-08-12.
 
+Status: `SUPERSEDED_FOR_RELEASE__AUTHORLESS_TEMPLATE_PARITY_REBUILD_PENDING`.
+
+This receipt remains the exact audit record for the tracked pre-template-parity
+PDF. The current TeX differs only by removal of the article byline, date,
+explicit PDF identity metadata, and manuscript-local AI production paragraph.
+That editorial derivative requires a new exact clean build and complete PDF
+preflight before release; none of the mathematical findings below is revoked.
+
 ## Exact build identity
 
 - private PR head: `1c29524a5eb5745cbf785c76e40018bbb979316d`;

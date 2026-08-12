@@ -57,8 +57,10 @@ the already-frozen audit, priority, and implications qualifications.
   frozen priority adjudication.
 - Computation and partial Lean status are moved to a separate verification
   section so no software output is mistaken for the geometric proof.
-- Repository identity `DannyExperiments` is supplied as the sole author, with
-  no affiliation; AI systems appear only in the disclosure.
+- The article is authorless and has empty date/identity metadata, matching the
+  established solve-repository paper convention. Repository and
+  preferred-citation authorship remain `DannyExperiments` in the root
+  `CITATION.cff`; AI assistance is documented in the root disclosure file.
 
 Any later mathematical alteration to the quartic, root interval, orbit,
 caustic, reflection bridge, line construction, signed-area formula, theorem

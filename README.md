@@ -1,8 +1,5 @@
 # A domain counterexample for a focal-antipedal area ratio
 
-Local public-candidate staging only. No workflow badge, immutable release, DOI,
-formal-verification claim, or peer-review claim is authorized yet.
-
 An exact primitive one-winding `N=8` elliptic-billiard orbit makes both focal
 signed antipedal areas zero under the complete supporting-line construction.
 Consequently, the unqualified quotient in arXiv-v11 row `k_607` is `0/0` at
@@ -44,6 +41,34 @@ not a counterexample to the signed-area identity.
 [Reproducibility](REPRODUCIBILITY.md) ·
 [Citation status](CITATION_STATUS.md)
 
+## Read the result
+
+- [Manuscript PDF](paper/manuscript.pdf)
+- [TeX source](paper/manuscript.tex)
+- [Problem and proof scope](PROBLEM_AND_PROOF.md)
+- [Claim scope and limitations](paper/CLAIM_SCOPE_AND_LIMITATIONS.md)
+- [Canonical dependency map](canonical/DEPENDENCY_MAP.md)
+- [Claims/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md)
+
+The PDF follows the established solve-repository convention: the article is
+authorless, while repository and preferred-citation authorship are recorded
+as `DannyExperiments` in `CITATION.cff`. AI assistance is documented only on
+the repository disclosure surface, not presented as article authorship or
+peer review.
+
+## Reproduce the public-safe evidence
+
+```bash
+bash scripts/verify.sh --integrity-only
+python3 -B verification/verify_k607_stdlib.py
+```
+
+The repository check verifies the exact allowlist, hashes, public-safe
+evidence, manuscript identity, privacy rules, and release gates. The exact
+verifier checks the finite `N=8` certificate. Neither command substitutes for
+the analytic proof, mathematical audit, human peer review, or the explicitly
+scoped Lean artifact.
+
 ## Verification status
 
 | Gate | Current status |
@@ -53,7 +78,7 @@ not a counterexample to the signed-area identity.
 | Priority | Passed with bounded language: exact `N=8` certificate apparently new after a three-lane search through 2026-08-12 |
 | Public verifier | Fail-closed standard-library exact replay passes in ordinary and optimized modes; integrity-only mode also verifies its frozen output |
 | Exact evidence | Deterministic public-safe certificate archive and detached SHA-256 sidecar integrated |
-| Manuscript | Accepted six-page replacement PDF integrated with exact build receipt, source parity, metadata/privacy pass, and complete 6-of-6 rendered-page inspection; integration-head rebuild text and all page renders matched exactly |
+| Manuscript | Authorless editorial source matches the mature solve template; its replacement clean build and complete PDF audit are pending. The tracked pre-template-parity six-page PDF remains a passed historical artifact, not the current release PDF |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
 | Repository | Private draft PR #1 active; hardened source/workflow and accepted-PDF integration heads passed all four checks; no public visibility, merge, tag, or release yet |
@@ -94,8 +119,16 @@ This project does not claim:
 
 ## Authorship, disclosure, and rights
 
-Repository and proposed paper authorship use the established public convention
-`DannyExperiments`, with no affiliation listed. AI assistance is disclosed in
+Repository and preferred-citation authorship use the established public
+convention `DannyExperiments`, with no affiliation listed; the mathematical
+article itself is authorless. AI assistance is disclosed in
 [AI_DISCLOSURE.md](AI_DISCLOSURE.md). No repository-wide reuse license is
 granted; all rights are reserved as described in
 [LICENSE_STATUS.md](LICENSE_STATUS.md).
+
+## Release status
+
+This is an audited private release candidate. Workflow badges, public
+visibility, protected-main activation, an immutable `v1.0.0` release, DOI
+metadata, and any external notice remain separate human-controlled gates. See
+[STATUS.md](STATUS.md) and [release/README.md](release/README.md).

@@ -1,7 +1,14 @@
 # Stage-4 manuscript build instructions
 
-This directory is a source freeze. No PDF is part of this package and no
-successful TeX compilation is claimed.
+The nested checksum package freezes the manuscript source and comparison
+records. The repository also tracks `manuscript.pdf` and its independent
+`PDF_PREFLIGHT.md`; those two files are intentionally outside the nested
+source ledger and are covered by the root ledger.
+
+The pre-template-parity source compiled successfully in checksum-pinned
+private CI and its six-page PDF passed complete inspection. The current
+authorless editorial derivative requires a fresh exact-head clean build and
+new preflight before its PDF can replace that historical artifact.
 
 ## Expected toolchain
 
@@ -10,8 +17,9 @@ successful TeX compilation is claimed.
 - standard packages `amsmath`, `amssymb`, `mathtools`, `geometry`,
   `microtype`, and `hyperref`.
 
-No TeX engine was available on the source-freeze host. In accordance with the
-release gate, no package manager, installer, or dependency fetch was run.
+The repository workflow uses a commit-pinned LaTeX action and an exact
+TeX Live container digest. No package manager, installer, or dependency fetch
+is run on the local staging host.
 
 ## Rebuild
 

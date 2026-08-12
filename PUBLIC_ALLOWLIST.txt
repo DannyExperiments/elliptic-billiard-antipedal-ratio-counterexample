@@ -22,6 +22,7 @@ audits/README.md
 audits/public_safe_reports/IMPLICATIONS_SCOPE_SUMMARY.md
 audits/public_safe_reports/LITERATURE_STATUS_SUMMARY.md
 audits/public_safe_reports/MATHEMATICAL_AUDIT_SUMMARY.md
+audits/public_safe_reports/REPOSITORY_TEMPLATE_AND_PRIVACY_AUDIT_2026-08-12.md
 canonical/CANONICAL_CLAIM.md
 canonical/DEPENDENCY_MAP.md
 canonical/README.md
@@ -42,6 +43,7 @@ formalization/lean/lakefile.toml
 formalization/lean/lean-toolchain
 paper/BUILD.md
 paper/BUILD_STATUS.md
+paper/CHANGELOG_FROM_CANONICAL_PROOF.md
 paper/CLAIM_SCOPE_AND_LIMITATIONS.md
 paper/MANIFEST.md
 paper/PDF_PREFLIGHT.md
@@ -52,12 +54,16 @@ paper/SOURCE_TO_CANONICAL_COMPARISON.md
 paper/manuscript.pdf
 paper/manuscript.tex
 paper/references.bib
+release/BADGE_ACTIVATION.md
+release/BRANCH_PROTECTION.md
+release/DOI_DEPOSIT.md
 release/HUMAN_RELEASE_CHECKLIST.md
 release/PRIVATE_BOOTSTRAP.md
 release/README.md
 release/RELEASE_GATES.json
-release/RELEASE_NOTES_DRAFT.md
+release/RELEASE_NOTES_v1.0.0.md
 release/WORKFLOW_ACTIVATION.md
+scripts/build_evidence_bundle.py
 scripts/freeze_manifest.py
 scripts/verify.sh
 scripts/verify_repository.py

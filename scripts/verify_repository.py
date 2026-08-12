@@ -4,9 +4,12 @@
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import re
+import stat
 import sys
+import zipfile
 from pathlib import Path
 
 from freeze_manifest import (
@@ -40,7 +43,6 @@ ALLOWED_SUFFIXES = {
 ALLOWED_BINARY_PATHS = {
     "evidence/N8_SUPPORTING_LINE_CERTIFICATE.zip",
     "paper/manuscript.pdf",
-    "paper/PDF_PREFLIGHT.md",
 }
 
 REQUIRED_RELEASE_FILES = {
@@ -87,15 +89,16 @@ REQUIRED_GATE_NAMES = {
 }
 
 FROZEN_MANUSCRIPT_HASHES = {
-    "paper/manuscript.tex": "dc82e016bb8fe7567f3283818d542d391b48a7a3aef9488677a657ef7c3089b0",
+    "paper/manuscript.tex": "762610722c4d138b3ac3915f9d15f0ad660896c327a26ace7007a8b3bf4ed71b",
     "paper/references.bib": "6ab2dd7504ca52f188549c2cc255a0adb9859b2f6e658fdae3febe6a04c53d62",
-    "paper/BUILD.md": "3162d9383364c86dd2483b6c573bcf4966e3a900a85b358936827ca022964f3b",
-    "paper/CLAIM_SCOPE_AND_LIMITATIONS.md": "870d4ab842470ebc757cd5ac78c9932304520669771a7527ecfedfb84a700312",
-    "paper/SOURCE_TO_CANONICAL_COMPARISON.md": "56f876c9a9d35b2c51b7605b9af6de8fbec84aa78dfe270baad5bb5e5e2031e5",
-    "paper/MANIFEST.md": "a511c4dd87a83e3fda0d9c1213705bc0859fd89906c380ec094e100bae8a7533",
-    "paper/SHA256SUMS.txt": "ea905e14c87f7464cd5b350caca978c426398da05877a49f7259588ece189014",
-    "paper/SHA256SUMS.txt.sha256": "849e9fac78a83be0651fe1763cc0bd0a7bab7870b09b3d57bd07a5ff5da4dc32",
-    "paper/PDF_PREFLIGHT.md": "d31ce8df3112d29d4b05afa8ea5719b8045b53a1ea76401ea4618df3576c2742",
+    "paper/BUILD.md": "a9d8fc2d794353c9b49bb5a1c9c1bf3d2b6d226399bb371e85c62943120d9c5c",
+    "paper/CLAIM_SCOPE_AND_LIMITATIONS.md": "67320296fb0ebb196c6925c0cfcd3d1afcec9d8cec1ee5982f8df5a7411f79a8",
+    "paper/SOURCE_TO_CANONICAL_COMPARISON.md": "c1dcc78a7568594456eca93ab6352ec67d7291ffae26f6f533c9db5830fedbab",
+    "paper/CHANGELOG_FROM_CANONICAL_PROOF.md": "d69b317918c42cd4fc7bfefbfb2c51c03e0785d3c1de6d5995fee0fac73014c9",
+    "paper/MANIFEST.md": "4eb0cf3f6ee89386cdc28880b56c9754af7249f9bf24d777e8546a514fbd3e8a",
+    "paper/SHA256SUMS.txt": "d035653daf0c46300daea167104d36cf07ac32f0ed43faab343902956bb2093e",
+    "paper/SHA256SUMS.txt.sha256": "2038db066fb8cb3181ccb39de151b17f6a25df9158c1c47ed8273f196afc7722",
+    "paper/PDF_PREFLIGHT.md": "6a4f0946e4466efa3e8b644c44bce289fb377f081006ad1cfe6d74fef735ac1c",
     "paper/manuscript.pdf": "998ba5f77cb8d94a69e4dc7e089f5dd8a2b314aac7b8f77f677d95553064c7cd",
 }
 
@@ -113,51 +116,132 @@ FROZEN_PUBLIC_CERTIFICATE_HASHES = {
 }
 
 
-def text_files(paths: set[str]) -> list[str]:
-    return sorted(rel for rel in paths if rel not in ALLOWED_BINARY_PATHS)
+TEXT_SUFFIXES = {
+    ".bib",
+    ".cff",
+    ".json",
+    ".lean",
+    ".md",
+    ".py",
+    ".sha256",
+    ".sh",
+    ".tex",
+    ".toml",
+    ".txt",
+    ".yml",
+}
 
 
-def scan_public_text(paths: set[str]) -> list[str]:
+def privacy_findings(label: str, body: str) -> list[str]:
     failures: list[str] = []
     fragments = {
-        "/" + "Users" + "/": "absolute user path",
+        "/" + "Users" + "/": "absolute macOS user path",
+        "/private/var/" + "folders/": "private temporary-item path",
         "/var/" + "folders/": "temporary-item path",
+        "/home/" + "runner/work/": "CI workspace path",
+        "\\" + "Users" + "\\": "absolute Windows user path",
         "." + "codex": "internal application path",
         "chatgpt" + ".com": "private conversation URL",
+        "chat" + ".openai.com": "private conversation URL",
         "sandbox" + ":": "internal download URL",
+        "file" + "://": "local file URL",
         "codex" + "-clipboard": "clipboard artifact name",
         "pasted" + "-text": "attachment artifact name",
-        "daniel" + "cabezas": "local personal identifier",
+        "daniel" + "cabezas": "private local identifier",
+        "imaginary" + "ones.com": "private account domain",
+        "danny" + ".social": "private profile identifier",
         "oai" + "-mem-citation": "internal memory citation",
         chr(0xE200) + "cite": "internal tool citation",
     }
-    internal_ref = re.compile(r"\bturn\d+(?:search|view|fetch|open)\d+\b")
-    email = re.compile(r"(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b")
-    secret_patterns = {
+    lowered = body.lower()
+    for fragment, description in fragments.items():
+        if fragment.lower() in lowered:
+            failures.append(f"{description} in {label}")
+
+    patterns = {
+        "internal search reference": re.compile(r"\bturn\d+(?:search|view|fetch|open)\d+\b"),
+        "email address": re.compile(r"(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b"),
+        "UUID-like receipt identifier": re.compile(
+            r"(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b"
+        ),
         "private key block": re.compile("BEGIN " + "(?:RSA |EC |OPENSSH )?PRIVATE KEY"),
         "GitHub token": re.compile(r"\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}\b"),
         "GitHub fine-grained token": re.compile(r"\bgithub_pat_[A-Za-z0-9_]{40,}\b"),
         "generic API secret": re.compile(r"\bsk-[A-Za-z0-9_-]{16,}\b"),
     }
+    for description, pattern in patterns.items():
+        if pattern.search(body):
+            failures.append(f"{description} in {label}")
+    return failures
 
-    for rel in text_files(paths):
-        candidate = ROOT / rel
-        try:
-            body = candidate.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
-            failures.append(f"non-UTF-8 public text file: {rel}")
+
+def scan_zip_bytes(label: str, payload: bytes, depth: int = 0) -> list[str]:
+    failures: list[str] = []
+    if depth > 2:
+        return [f"nested ZIP depth exceeds policy in {label}"]
+    try:
+        archive = zipfile.ZipFile(io.BytesIO(payload))
+    except zipfile.BadZipFile:
+        return [f"invalid ZIP archive: {label}"]
+
+    infos = archive.infolist()
+    if len(infos) > 1000:
+        failures.append(f"ZIP member count exceeds policy in {label}")
+    if sum(info.file_size for info in infos) > 100 * 1024 * 1024:
+        failures.append(f"ZIP expanded size exceeds policy in {label}")
+    seen: set[str] = set()
+    for info in infos:
+        name = info.filename
+        member_label = f"{label}!{name}"
+        path = Path(name)
+        if not name or name in seen:
+            failures.append(f"empty or duplicate ZIP member path in {member_label}")
             continue
-        lowered = body.lower()
-        for fragment, label in fragments.items():
-            if fragment.lower() in lowered:
-                failures.append(f"{label} in {rel}")
-        if internal_ref.search(body):
-            failures.append(f"internal search reference in {rel}")
-        if email.search(body):
-            failures.append(f"email address in {rel}")
-        for label, pattern in secret_patterns.items():
-            if pattern.search(body):
-                failures.append(f"{label} in {rel}")
+        seen.add(name)
+        if path.is_absolute() or ".." in path.parts or "\\" in name:
+            failures.append(f"unsafe ZIP member path in {member_label}")
+        mode = (info.external_attr >> 16) & 0xFFFF
+        if mode and stat.S_ISLNK(mode):
+            failures.append(f"ZIP symlink member in {member_label}")
+        if info.flag_bits & 0x1:
+            failures.append(f"encrypted ZIP member in {member_label}")
+        if info.is_dir():
+            continue
+        data = archive.read(info)
+        suffix = path.suffix.lower()
+        if suffix in TEXT_SUFFIXES:
+            try:
+                text = data.decode("utf-8")
+            except UnicodeDecodeError:
+                failures.append(f"non-UTF-8 public text member: {member_label}")
+            else:
+                failures.extend(privacy_findings(member_label, text))
+        elif suffix == ".zip":
+            failures.extend(scan_zip_bytes(member_label, data, depth + 1))
+        elif suffix == ".pdf":
+            failures.extend(privacy_findings(member_label, data.decode("latin-1", errors="ignore")))
+    archive.close()
+    return failures
+
+
+def scan_public_text(paths: set[str]) -> list[str]:
+    failures: list[str] = []
+    for rel in sorted(paths):
+        candidate = ROOT / rel
+        suffix = candidate.suffix.lower()
+        if suffix in TEXT_SUFFIXES:
+            try:
+                body = candidate.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                failures.append(f"non-UTF-8 public text file: {rel}")
+            else:
+                failures.extend(privacy_findings(rel, body))
+        elif suffix == ".zip":
+            failures.extend(scan_zip_bytes(rel, candidate.read_bytes()))
+        elif suffix == ".pdf":
+            failures.extend(
+                privacy_findings(rel, candidate.read_bytes().decode("latin-1", errors="ignore"))
+            )
     return failures
 
 
@@ -261,6 +345,24 @@ def check_rights_and_metadata() -> list[str]:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     if "badge.svg" in readme or "[![" in readme:
         failures.append("README contains an unapproved badge")
+
+    manuscript = (ROOT / "paper/manuscript.tex").read_text(encoding="utf-8")
+    article_identity_markers = {
+        "\\author{": "article author byline",
+        "\\affiliation{": "article affiliation",
+        "pdfauthor=": "explicit PDF author metadata",
+        "pdftitle=": "explicit PDF title metadata",
+        "pdfsubject=": "explicit PDF subject metadata",
+        "DannyExperiments": "repository identity in mathematical article",
+        "OpenAI": "AI vendor name in mathematical article",
+        "ChatGPT": "AI product name in mathematical article",
+        "Codex": "AI product name in mathematical article",
+    }
+    for marker, description in article_identity_markers.items():
+        if marker in manuscript:
+            failures.append(f"{description} must remain on repository metadata/disclosure surfaces")
+    if "\\date{}" not in manuscript:
+        failures.append("article date must remain empty under the established paper template")
     return failures
 
 

@@ -2,7 +2,8 @@
 
 `CITATION.cff` records the authorized staging authorship convention
 `DannyExperiments` and no affiliation. It deliberately omits a repository URL,
-release version, release date, and DOI because none exists for this local tree.
+release version, release date, and DOI because the repository remains a
+private release candidate and no citable release exists.
 The preferred-citation title matches the currently frozen manuscript source;
 it remains provisional until the human release gate.
 

@@ -21,26 +21,32 @@ Except for the public-safe manuscript source package described below, these
 hashes identify controlling artifacts that are summarized rather than copied
 wholesale into this staging tree.
 
-## Frozen Stage-4 manuscript import after source audit
+## Stage-4 proof import and public editorial derivative
 
-The following Stage-4 Candidate-B source members are frozen under `paper/`
-after two citation-only repairs required by the hostile source audit. The
-central-symmetry proof architecture and mathematics were not changed, and no
-Candidate-A/C proof material was cross-patched.
+The Stage-4 Candidate-B source first received two citation-only repairs
+required by hostile source audit. The current public derivative additionally
+removes only the article byline, date, explicit PDF identity metadata, and
+manuscript-local AI production paragraph to match the established
+solve-repository template. The central-symmetry proof architecture,
+mathematics, references, and scope were not changed, and no Candidate-A/C
+proof material was cross-patched.
 
 | Imported member | SHA-256 |
 |---|---|
-| `paper/manuscript.tex` | `972dcf53662ce94efcf56b7f6ccee0a8db30e7a0dcf7e74f6033e22aab40584e` |
+| `paper/manuscript.tex` | `762610722c4d138b3ac3915f9d15f0ad660896c327a26ace7007a8b3bf4ed71b` |
 | `paper/references.bib` | `6ab2dd7504ca52f188549c2cc255a0adb9859b2f6e658fdae3febe6a04c53d62` |
-| `paper/BUILD.md` | `3162d9383364c86dd2483b6c573bcf4966e3a900a85b358936827ca022964f3b` |
-| `paper/CLAIM_SCOPE_AND_LIMITATIONS.md` | `870d4ab842470ebc757cd5ac78c9932304520669771a7527ecfedfb84a700312` |
-| `paper/SOURCE_TO_CANONICAL_COMPARISON.md` | `56f876c9a9d35b2c51b7605b9af6de8fbec84aa78dfe270baad5bb5e5e2031e5` |
-| `paper/MANIFEST.md` | `b56fc4d13530b6b9fe3d3b10561c38ac4fc16d59e9a07324c256b66c811b424e` |
-| `paper/SHA256SUMS.txt` | `b13a369a74f49e386841547252f6b80dabd987e2db45c801492d67e441347a54` |
-| `paper/SHA256SUMS.txt.sha256` | `93db4b5b18697acd179382b5c220165670e16b9c2cfa0f833f2d6f7626eaadbc` |
+| `paper/BUILD.md` | `a9d8fc2d794353c9b49bb5a1c9c1bf3d2b6d226399bb371e85c62943120d9c5c` |
+| `paper/CLAIM_SCOPE_AND_LIMITATIONS.md` | `67320296fb0ebb196c6925c0cfcd3d1afcec9d8cec1ee5982f8df5a7411f79a8` |
+| `paper/SOURCE_TO_CANONICAL_COMPARISON.md` | `c1dcc78a7568594456eca93ab6352ec67d7291ffae26f6f533c9db5830fedbab` |
+| `paper/CHANGELOG_FROM_CANONICAL_PROOF.md` | `d69b317918c42cd4fc7bfefbfb2c51c03e0785d3c1de6d5995fee0fac73014c9` |
+| `paper/MANIFEST.md` | `4eb0cf3f6ee89386cdc28880b56c9754af7249f9bf24d777e8546a514fbd3e8a` |
+| `paper/SHA256SUMS.txt` | `d035653daf0c46300daea167104d36cf07ac32f0ed43faab343902956bb2093e` |
+| `paper/SHA256SUMS.txt.sha256` | `2038db066fb8cb3181ccb39de151b17f6a25df9158c1c47ed8273f196afc7722` |
 
-These receipts establish source identity only. No TeX build, PDF parity,
-metadata scan, or visual preflight is inferred.
+These receipts establish exact source identity only. The earlier tracked PDF
+passed its own complete audit against the pre-template-parity source; the
+current derivative still requires a fresh TeX build, PDF parity, metadata
+scan, and visual preflight before it becomes the release PDF.
 
 ## Public exact-certificate and formalization import
 
