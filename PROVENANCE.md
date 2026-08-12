@@ -93,3 +93,19 @@ passed before integration.
 
 Future imports must be individually sanitized, allowlisted, hashed, and
 classified by role before inclusion.
+
+## Public release and archival deposit
+
+Release-candidate PR #2 passed all four protected checks and was squash-merged
+to public `main` at commit
+`d577ee6b199f5954dc74893834820df2656d56cb`. Immutable GitHub Version 1.0.0,
+release ID `369384507`, was published from that exact commit on 2026-08-12.
+The six public assets were anonymously re-downloaded and verified against the
+frozen release ledger; the evidence ZIP also passed archive-integrity checks.
+
+Those exact six GitHub release bytes were deposited to Zenodo record
+`21907170`. Version DOI `10.5281/zenodo.21907170` and concept DOI
+`10.5281/zenodo.21907169` resolve and are DataCite-findable. All six Zenodo
+downloads were independently byte-matched to the immutable GitHub assets.
+Post-DOI metadata on current `main` does not alter the tag or any release or
+Zenodo file.

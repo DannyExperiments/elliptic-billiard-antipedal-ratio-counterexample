@@ -16,6 +16,8 @@ SIDECAR = ROOT / "release/EVIDENCE_BUNDLE.sha256"
 ASSET_LEDGER = ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt"
 PREFIX = "AMR-050-0035_PUBLIC_EVIDENCE_V1/"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
+FROZEN_BUNDLE_SHA256 = "507c6b33d60a1bf2cff00e80c36b008a637bd390fe37f6c8aed18e593545af3b"
+FROZEN_ASSET_LEDGER_SHA256 = "a91a779d8513c022f03aef1e2aee08562570978bd4fe33b708315f2ffa2b5c48"
 
 ALLOWLIST = (
     "README.md",
@@ -160,22 +162,20 @@ def main() -> int:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
+    if args.check:
+        if not OUTPUT.is_file() or sha256(OUTPUT.read_bytes()) != FROZEN_BUNDLE_SHA256:
+            raise SystemExit("IMMUTABLE_EVIDENCE_BUNDLE_HASH_MISMATCH")
+        expected_sidecar = f"{FROZEN_BUNDLE_SHA256}  EVIDENCE_BUNDLE.zip\n"
+        if not SIDECAR.is_file() or SIDECAR.read_text(encoding="utf-8") != expected_sidecar:
+            raise SystemExit("EVIDENCE_BUNDLE_SIDECAR_OUT_OF_DATE")
+        if not ASSET_LEDGER.is_file() or sha256(ASSET_LEDGER.read_bytes()) != FROZEN_ASSET_LEDGER_SHA256:
+            raise SystemExit("IMMUTABLE_RELEASE_ASSET_LEDGER_HASH_MISMATCH")
+        print("IMMUTABLE_RELEASE_EVIDENCE_BUNDLE: PASS")
+        return 0
+
     bundle = build_bytes()
     sidecar = sidecar_text(bundle)
     asset_ledger = asset_ledger_text(bundle)
-    if args.check:
-        if not OUTPUT.is_file() or OUTPUT.read_bytes() != bundle:
-            raise SystemExit("EVIDENCE_BUNDLE_OUT_OF_DATE")
-        if not SIDECAR.is_file() or SIDECAR.read_text(encoding="utf-8") != sidecar:
-            raise SystemExit("EVIDENCE_BUNDLE_SIDECAR_OUT_OF_DATE")
-        if (
-            not ASSET_LEDGER.is_file()
-            or ASSET_LEDGER.read_text(encoding="utf-8") != asset_ledger
-        ):
-            raise SystemExit("RELEASE_ASSET_LEDGER_OUT_OF_DATE")
-        print("DETERMINISTIC_EVIDENCE_BUNDLE: PASS")
-        return 0
-
     OUTPUT.write_bytes(bundle)
     SIDECAR.write_text(sidecar, encoding="utf-8")
     ASSET_LEDGER.write_text(asset_ledger, encoding="utf-8")

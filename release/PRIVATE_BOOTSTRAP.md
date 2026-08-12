@@ -65,5 +65,9 @@ The final approval head
 workflows and PR #1 was squash-merged to private `main` at
 `614152f05d1b6e9005958d7566740b1205a14b25`. The four post-merge runs also
 passed: repository integrity `31614190306`, exact replay `31614190363`, PDF
-build `31614190281`, and partial Lean `31614190259`. Public visibility remains
-a separate authenticated settings action.
+build `31614190281`, and partial Lean `31614190259`.
+
+Public visibility was subsequently enabled only after the protected release
+candidate passed independently. The immutable Version 1.0.0 release and
+Zenodo deposit are recorded in `release/README.md`; this file remains the
+historical private-bootstrap receipt.

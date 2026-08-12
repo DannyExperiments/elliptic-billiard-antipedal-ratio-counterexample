@@ -18,5 +18,7 @@ The PDF workflow uses the same SHA-pinned LaTeX action audited in the
 comparison repositories, binds its TeX Live container to an exact OCI digest,
 and uploads only the manuscript PDF and build log. Staged workflows use pinned
 action commits, checkout with credential persistence disabled, and read-only
-content permissions. The repository release gate remains fail closed until
-all release gates are explicitly satisfied.
+content permissions. The release-and-DOI gate is closed on current `main`;
+future integrity drift, a failed required check, or a broken recorded DOI
+causes the verifier to fail closed. External problem-page notice remains a
+separate optional communication action.

@@ -73,6 +73,7 @@ EXPECTED_WORKFLOW_BADGES = {
     "[![Exact verifier replay](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/replay-exact-verifier.yml)",
     "[![PDF build](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/pdf.yml)",
     "[![Partial finite exact certificate (Lean)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/actions/workflows/lean-finite-certificate.yml)",
+    "[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21907169-blue.svg)](https://doi.org/10.5281/zenodo.21907169)",
 }
 
 REQUIRED_GATE_NAMES = {
@@ -333,20 +334,22 @@ def check_frozen_public_certificate() -> list[str]:
 
 
 def check_release_bundle() -> list[str]:
-    """Require the staged release bundle, sidecar, and asset ledger to rebuild exactly."""
+    """Require the immutable release bundle, sidecar, and ledger to stay frozen."""
 
-    from build_evidence_bundle import asset_ledger_text, build_bytes, sidecar_text
+    from build_evidence_bundle import FROZEN_ASSET_LEDGER_SHA256, FROZEN_BUNDLE_SHA256
+    from freeze_manifest import digest
 
     failures: list[str] = []
-    bundle = build_bytes()
-    expected = {
-        ROOT / "release/EVIDENCE_BUNDLE.zip": bundle,
-        ROOT / "release/EVIDENCE_BUNDLE.sha256": sidecar_text(bundle).encode("utf-8"),
-        ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt": asset_ledger_text(bundle).encode("utf-8"),
-    }
-    for path, payload in expected.items():
-        if not path.is_file() or path.read_bytes() != payload:
-            failures.append(f"stale deterministic release artifact: {path.relative_to(ROOT)}")
+    bundle = ROOT / "release/EVIDENCE_BUNDLE.zip"
+    sidecar = ROOT / "release/EVIDENCE_BUNDLE.sha256"
+    ledger = ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt"
+    if not bundle.is_file() or digest(bundle) != FROZEN_BUNDLE_SHA256:
+        failures.append("immutable release evidence bundle hash mismatch")
+    expected_sidecar = f"{FROZEN_BUNDLE_SHA256}  EVIDENCE_BUNDLE.zip\n"
+    if not sidecar.is_file() or sidecar.read_text(encoding="utf-8") != expected_sidecar:
+        failures.append("immutable release evidence sidecar mismatch")
+    if not ledger.is_file() or digest(ledger) != FROZEN_ASSET_LEDGER_SHA256:
+        failures.append("immutable release asset ledger hash mismatch")
     return failures
 
 
@@ -370,20 +373,19 @@ def check_rights_and_metadata() -> list[str]:
     required_citation_lines = {
         'version: 1.0.0',
         'date-released: 2026-08-12',
+        'doi: "10.5281/zenodo.21907170"',
+        'url: "https://doi.org/10.5281/zenodo.21907170"',
         'repository-code: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"',
-        'url: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"',
+        'value: "10.5281/zenodo.21907170"',
+        'value: "10.5281/zenodo.21907169"',
+        'value: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/releases/tag/v1.0.0"',
     }
     for required in sorted(required_citation_lines - citation_lines):
         failures.append(f"required release citation metadata absent: {required}")
-    if any(line.startswith("doi:") for line in citation_lines):
-        failures.append("DOI metadata must remain absent until the deposit resolves")
-
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     present_badges = {line.strip() for line in readme.splitlines() if line.startswith("[![")}
     if present_badges != EXPECTED_WORKFLOW_BADGES:
-        failures.append("README workflow badges do not match the exact approved four-badge set")
-    if "img.shields.io" in readme or "zenodo" in "\n".join(present_badges).lower():
-        failures.append("DOI badge is premature before the deposit resolves")
+        failures.append("README badges do not match the exact approved five-badge set")
 
     manuscript = (ROOT / "paper/manuscript.tex").read_text(encoding="utf-8")
     article_identity_markers = {

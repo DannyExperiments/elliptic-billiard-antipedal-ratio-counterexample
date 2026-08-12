@@ -4,7 +4,19 @@ title: "A domain counterexample for a focal-antipedal area ratio"
 type: software
 version: 1.0.0
 date-released: 2026-08-12
+doi: "10.5281/zenodo.21907170"
+url: "https://doi.org/10.5281/zenodo.21907170"
 repository-code: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21907170"
+    description: "The version DOI for the immutable Version 1.0.0 release."
+  - type: doi
+    value: "10.5281/zenodo.21907169"
+    description: "The concept DOI for all versions of this work."
+  - type: url
+    value: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample/releases/tag/v1.0.0"
+    description: "The immutable GitHub Version 1.0.0 release."
 authors:
   - name: "DannyExperiments"
 preferred-citation:
@@ -13,7 +25,10 @@ preferred-citation:
   authors:
     - name: "DannyExperiments"
   year: 2026
-  url: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"
+  version: 1.0.0
+  date-released: 2026-08-12
+  doi: "10.5281/zenodo.21907170"
+  url: "https://doi.org/10.5281/zenodo.21907170"
 keywords:
   - elliptic billiards
   - Poncelet polygons

@@ -11,4 +11,6 @@ No unchecked item is authorization by implication.
 - [x] Public repository visibility approved.
 - [x] Immutable version/tag/release approved.
 - [x] DOI metadata and deposit approved.
+- [x] Immutable Version 1.0.0 published and all six assets hash-verified.
+- [x] Version and concept DOI deposited, resolved, and file parity verified.
 - [ ] External notice or problem-page comment approved.

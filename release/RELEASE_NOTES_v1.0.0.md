@@ -1,8 +1,8 @@
-# Proposed Version 1.0.0 release notes
+# Version 1.0.0 release notes
 
-No release exists yet. Version 1.0.0 publication is human-approved, but this
-file remains a release candidate until protected public-main CI and exact asset
-verification pass.
+Immutable Version 1.0.0 was published from protected-public-main commit
+`d577ee6b199f5954dc74893834820df2656d56cb` on 2026-08-12 as GitHub release
+ID `369384507`.
 
 ## Result
 
@@ -21,7 +21,7 @@ a defined nonunit ratio and not a refutation of the signed-area identity.
 
 The exact `N=8` certificate appears new after a documented three-lane search
 through 2026-08-12; absolute historical priority is not claimed. The release
-would include the article source and PDF, bibliography, citation metadata,
+includes the article source and PDF, bibliography, citation metadata,
 deterministic public-safe evidence, exact standard-library replay, public-safe
 audit summaries, and a partial finite Lean certificate.
 
@@ -39,7 +39,7 @@ unrestricted logs are excluded.
 
 ## Immutable assets
 
-The authorized Version 1.0.0 release will contain exactly:
+The immutable Version 1.0.0 release contains exactly:
 
 - `elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.pdf`;
 - `elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.tex`;
@@ -49,6 +49,9 @@ The authorized Version 1.0.0 release will contain exactly:
   and
 - `RELEASE_ASSET_SHA256SUMS.txt`.
 
-The exact tag commit, publication date, release identifier, asset hashes, and
-any DOI must be inserted only after protected public-main CI and immutable
-asset verification. Any DOI deposit remains a separate post-release action.
+All six assets were anonymously re-downloaded and verified against the frozen
+release ledger; the evidence ZIP passed integrity testing. The archived version
+DOI is `10.5281/zenodo.21907170`, and the concept DOI is
+`10.5281/zenodo.21907169`. Every Zenodo file byte-matches the corresponding
+immutable GitHub asset. This current-main metadata update does not alter the
+tag, paper, proof, PDF, or any release asset.
