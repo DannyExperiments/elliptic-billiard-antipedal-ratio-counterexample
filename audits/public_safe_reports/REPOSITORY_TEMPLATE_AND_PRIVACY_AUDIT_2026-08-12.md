@@ -53,6 +53,13 @@ template parity is not complete until the authorless source is rebuilt and
 the exact replacement PDF passes source, metadata, privacy, and complete
 rendered-page inspection.
 
+The first authorless rebuild compiled and passed its automated log gate, but
+manual rendered-page inspection found clipped `amsart` running-mark fragments
+on even pages 4 and 6. It was rejected. The source now uses the same explicit
+short-title mark on both sides, following the established authorless
+solve-paper pattern; that repaired PDF remains pending exact-head rebuild and
+complete visual inspection.
+
 Release-asset files and a write-enabled publishing workflow are deliberately
 not treated as present-tense accomplishments. They are built only after the
 final public-main bytes, citation metadata, branch protection, and explicit

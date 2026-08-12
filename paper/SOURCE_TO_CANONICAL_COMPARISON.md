@@ -61,6 +61,9 @@ the already-frozen audit, priority, and implications qualifications.
   established solve-repository paper convention. Repository and
   preferred-citation authorship remain `DannyExperiments` in the root
   `CITATION.cff`; AI assistance is documented in the root disclosure file.
+- An explicit identical short-title `\markboth` is used solely to keep
+  authorless `amsart` running headers stable on every page; it changes no body
+  text or mathematical dependency.
 
 Any later mathematical alteration to the quartic, root interval, orbit,
 caustic, reflection bridge, line construction, signed-area formula, theorem

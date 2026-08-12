@@ -10,6 +10,16 @@ explicit PDF identity metadata, and manuscript-local AI production paragraph.
 That editorial derivative requires a new exact clean build and complete PDF
 preflight before release; none of the mathematical findings below is revoked.
 
+The first authorless rebuild at private PR head
+`5378131839880e54e3823cd2328c6105c72a9762`, run `31574483418`, compiled
+successfully and had blank identity metadata, but visual preflight rejected it:
+the `amsart` even-page running mark rendered as clipped fragments on pages 4
+and 6. That PDF (SHA-256
+`704d312e34a1b5fd044fde066c65a3a127d50c700204b44a06c55086ef89570d`)
+is not integrated or accepted. The source now carries an explicit identical
+short-title mark on both sides and requires another clean build plus complete
+six-page inspection.
+
 ## Exact build identity
 
 - private PR head: `1c29524a5eb5745cbf785c76e40018bbb979316d`;

@@ -29,6 +29,13 @@ project's mature public releases:
 - AI assistance and production provenance are documented in the root
   `AI_DISCLOSURE.md` and `PROVENANCE.md`, not in the mathematical article.
 
+The first remote authorless build exposed an `amsart` running-mark defect on
+even pages: the empty article-author field yielded clipped fragments instead
+of a stable header. The source now sets the same short public title mark on
+both sides with `\markboth{FOCAL ANTIPEDAL AREAS}{FOCAL ANTIPEDAL AREAS}`.
+This is a pagination-only repair modeled on the established authorless
+solve-paper template; it changes no article text, theorem, formula, or proof.
+
 This edit removes only presentation and attribution-surface text. The abstract,
 problem statement, theorem statements, proof, formulas, references, scope,
 priority qualification, verification description, and limitations are

@@ -89,16 +89,16 @@ REQUIRED_GATE_NAMES = {
 }
 
 FROZEN_MANUSCRIPT_HASHES = {
-    "paper/manuscript.tex": "762610722c4d138b3ac3915f9d15f0ad660896c327a26ace7007a8b3bf4ed71b",
+    "paper/manuscript.tex": "032ece89a0158b9eb7537ae085b0e1f2159607aaf6817f2a1bf57bf305e06ba0",
     "paper/references.bib": "6ab2dd7504ca52f188549c2cc255a0adb9859b2f6e658fdae3febe6a04c53d62",
     "paper/BUILD.md": "a9d8fc2d794353c9b49bb5a1c9c1bf3d2b6d226399bb371e85c62943120d9c5c",
     "paper/CLAIM_SCOPE_AND_LIMITATIONS.md": "67320296fb0ebb196c6925c0cfcd3d1afcec9d8cec1ee5982f8df5a7411f79a8",
-    "paper/SOURCE_TO_CANONICAL_COMPARISON.md": "c1dcc78a7568594456eca93ab6352ec67d7291ffae26f6f533c9db5830fedbab",
-    "paper/CHANGELOG_FROM_CANONICAL_PROOF.md": "d69b317918c42cd4fc7bfefbfb2c51c03e0785d3c1de6d5995fee0fac73014c9",
-    "paper/MANIFEST.md": "4eb0cf3f6ee89386cdc28880b56c9754af7249f9bf24d777e8546a514fbd3e8a",
-    "paper/SHA256SUMS.txt": "d035653daf0c46300daea167104d36cf07ac32f0ed43faab343902956bb2093e",
-    "paper/SHA256SUMS.txt.sha256": "2038db066fb8cb3181ccb39de151b17f6a25df9158c1c47ed8273f196afc7722",
-    "paper/PDF_PREFLIGHT.md": "6a4f0946e4466efa3e8b644c44bce289fb377f081006ad1cfe6d74fef735ac1c",
+    "paper/SOURCE_TO_CANONICAL_COMPARISON.md": "34f185ec5bc229947ea117d5f51310b9d56ccae62e9f81ef43f0e379a19cde4c",
+    "paper/CHANGELOG_FROM_CANONICAL_PROOF.md": "8d46e5b12b6d1803952da351c5aa57ec11c26671f2fb8a8a5465ed7fbba8ae14",
+    "paper/MANIFEST.md": "518620a33d10f247f0a6d3a673243ffed41ef746e03c091743c49f0121dc2649",
+    "paper/SHA256SUMS.txt": "05a8833ff023fb2af94655723db44e0728497991d5560672cbc052ca05a974f1",
+    "paper/SHA256SUMS.txt.sha256": "808ea01dfbd8438fef74608467297e212f0e12bb92f9f7186891cde1804b5d35",
+    "paper/PDF_PREFLIGHT.md": "2b32ca4421fa7a392a06bc4ce423208ec2081495f89b9bb0fce25d7349ba9167",
     "paper/manuscript.pdf": "998ba5f77cb8d94a69e4dc7e089f5dd8a2b314aac7b8f77f677d95553064c7cd",
 }
 
@@ -363,6 +363,11 @@ def check_rights_and_metadata() -> list[str]:
             failures.append(f"{description} must remain on repository metadata/disclosure surfaces")
     if "\\date{}" not in manuscript:
         failures.append("article date must remain empty under the established paper template")
+    expected_running_mark = (
+        "\\markboth{FOCAL ANTIPEDAL AREAS}{FOCAL ANTIPEDAL AREAS}"
+    )
+    if manuscript.count(expected_running_mark) != 1:
+        failures.append("authorless article running-title mark is absent or ambiguous")
     return failures
 
 

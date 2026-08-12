@@ -21,7 +21,9 @@ METADATA_ONLY_PDF_SUBJECT_REPAIR: APPLIED__VISIBLE_MATHEMATICS_UNCHANGED
 CURRENT_SOURCE_REPLACEMENT_BUILD: PASS__COMMIT_1C29524A5EB5745CBF785C76E40018BBB979316D__RUN_31570217856
 REPLACEMENT_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PRE_TEMPLATE_PARITY_SOURCE
 AUTHORLESS_TEMPLATE_PARITY_EDIT: APPLIED__NO_MATHEMATICAL_CHANGE
-CURRENT_SOURCE_CLEAN_BUILD: PENDING_EXACT_HEAD_CI
+FIRST_AUTHORLESS_BUILD: REJECTED_VISUAL_PREFLIGHT__RUN_31574483418__MALFORMED_EVEN_PAGE_RUNNING_HEADERS
+RUNNING_HEADER_REPAIR: APPLIED__EXPLICIT_IDENTICAL_SHORT_TITLE_MARKS__NO_MATHEMATICAL_CHANGE
+CURRENT_SOURCE_CLEAN_BUILD: PENDING_REPAIRED_EXACT_HEAD_CI
 CURRENT_SOURCE_VISUAL_AND_PRIVACY_AUDIT: PENDING
 MANUSCRIPT_PASS: PENDING__CURRENT_SOURCE_REBUILD_AND_PREFLIGHT
 REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__EDITORIAL_PARITY_REBUILD_PENDING
@@ -85,9 +87,12 @@ root metadata surface. The public derivative therefore removes only the
 article byline, date, explicit PDF identity metadata, and manuscript-local AI
 production paragraph. The theorem, abstract, proof, formulas, bibliography,
 priority boundary, computation/formalization description, and exclusions are
-unchanged. The previously accepted PDF remains a historical audit artifact
-but is superseded for release until the current exact source is rebuilt and
-passes a new complete visual, metadata, privacy, and source-parity audit.
+unchanged. Its first clean authorless build was rejected because the empty
+`amsart` author mark produced clipped running-header fragments on even pages.
+An explicit identical short-title mark now fixes only that presentation layer.
+The previously accepted PDF remains a historical audit artifact but is
+superseded for release until the repaired exact source is rebuilt and passes a
+new complete visual, metadata, privacy, and source-parity audit.
 
 ## Privacy and rights surface
 
