@@ -23,10 +23,11 @@ REPLACEMENT_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PRE_TEMPLATE_PARIT
 AUTHORLESS_TEMPLATE_PARITY_EDIT: APPLIED__NO_MATHEMATICAL_CHANGE
 FIRST_AUTHORLESS_BUILD: REJECTED_VISUAL_PREFLIGHT__RUN_31574483418__MALFORMED_EVEN_PAGE_RUNNING_HEADERS
 RUNNING_HEADER_REPAIR: APPLIED__EXPLICIT_IDENTICAL_SHORT_TITLE_MARKS__NO_MATHEMATICAL_CHANGE
-CURRENT_SOURCE_CLEAN_BUILD: PENDING_REPAIRED_EXACT_HEAD_CI
-CURRENT_SOURCE_VISUAL_AND_PRIVACY_AUDIT: PENDING
-MANUSCRIPT_PASS: PENDING__CURRENT_SOURCE_REBUILD_AND_PREFLIGHT
-REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__EDITORIAL_PARITY_REBUILD_PENDING
+CURRENT_SOURCE_CLEAN_BUILD: PASS__COMMIT_941A1BE9F05E8A92B0C1AB9C9523238AD85B1308__RUN_31575265707
+CURRENT_SOURCE_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__IDENTITY_METADATA_BLANK
+CURRENT_SOURCE_PDF: PASS__SHA256_02C377DF84AA9F1D94BBD1D1EEE4CE56FC3FE9F9330BF5B31005A20601678A47
+MANUSCRIPT_PASS: PASS__CURRENT_AUTHORLESS_SOURCE_AND_PDF
+REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__PDF_INTEGRATION_HEAD_CI_PENDING
 ```
 
 ## Members
@@ -90,9 +91,13 @@ priority boundary, computation/formalization description, and exclusions are
 unchanged. Its first clean authorless build was rejected because the empty
 `amsart` author mark produced clipped running-header fragments on even pages.
 An explicit identical short-title mark now fixes only that presentation layer.
-The previously accepted PDF remains a historical audit artifact but is
-superseded for release until the repaired exact source is rebuilt and passes a
-new complete visual, metadata, privacy, and source-parity audit.
+The repaired exact source passed all four workflows at
+`941a1be9f05e8a92b0c1ab9c9523238ad85b1308`. Its six-page PDF passed source
+parity, complete 180-DPI visual inspection, build-log review, blank-identity
+metadata inspection, and deep privacy scanning. The exact accepted PDF SHA-256
+is `02c377df84aa9f1d94bbd1d1eee4ce56fc3fe9f9330bf5b31005a20601678a47`.
+The repository still requires all four workflows to pass on the later commit
+that integrates these accepted PDF bytes and this receipt.
 
 ## Privacy and rights surface
 

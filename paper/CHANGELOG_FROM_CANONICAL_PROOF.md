@@ -39,6 +39,7 @@ solve-paper template; it changes no article text, theorem, formula, or proof.
 This edit removes only presentation and attribution-surface text. The abstract,
 problem statement, theorem statements, proof, formulas, references, scope,
 priority qualification, verification description, and limitations are
-otherwise unchanged. It therefore requires a fresh clean build, source/PDF
-comparison, metadata and privacy scan, and page-by-page visual preflight, but
-does not reopen the frozen mathematical or literature adjudications.
+otherwise unchanged. The fresh exact-head build, source/PDF comparison,
+metadata and privacy scan, and page-by-page visual preflight subsequently
+passed on all six pages. None of these editorial operations reopens the frozen
+mathematical or literature adjudications.

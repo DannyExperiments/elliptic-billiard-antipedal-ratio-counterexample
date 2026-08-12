@@ -5,10 +5,13 @@ records. The repository also tracks `manuscript.pdf` and its independent
 `PDF_PREFLIGHT.md`; those two files are intentionally outside the nested
 source ledger and are covered by the root ledger.
 
-The pre-template-parity source compiled successfully in checksum-pinned
-private CI and its six-page PDF passed complete inspection. The current
-authorless editorial derivative requires a fresh exact-head clean build and
-new preflight before its PDF can replace that historical artifact.
+The current authorless editorial derivative compiled successfully in
+checksum-pinned private CI at exact head
+`941a1be9f05e8a92b0c1ab9c9523238ad85b1308`. Its six-page PDF passed source
+parity, clean-log review, blank-identity metadata and deep privacy inspection,
+and complete visual inspection at 180 DPI. The exact receipt is
+`PDF_PREFLIGHT.md`; the later PDF-integration head must repeat all four
+workflows before merge.
 
 ## Expected toolchain
 

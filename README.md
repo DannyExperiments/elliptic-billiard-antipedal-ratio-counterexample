@@ -78,10 +78,10 @@ scoped Lean artifact.
 | Priority | Passed with bounded language: exact `N=8` certificate apparently new after a three-lane search through 2026-08-12 |
 | Public verifier | Fail-closed standard-library exact replay passes in ordinary and optimized modes; integrity-only mode also verifies its frozen output |
 | Exact evidence | Deterministic public-safe certificate archive and detached SHA-256 sidecar integrated |
-| Manuscript | Authorless editorial source matches the mature solve template; its replacement clean build and complete PDF audit are pending. The tracked pre-template-parity six-page PDF remains a passed historical artifact, not the current release PDF |
+| Manuscript | Authorless source matches the mature solve template; the current six-page PDF passed its clean build, source-parity check, blank-metadata/privacy audit, and complete 6/6 visual inspection |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
-| Repository | Private draft PR #1 active; hardened source/workflow and accepted-PDF integration heads passed all four checks; no public visibility, merge, tag, or release yet |
+| Repository | Private draft PR #1 active; the repaired exact-source head passed all four checks and its PDF passed independent audit; final PDF-integration-head CI is pending; no public visibility, merge, tag, or release yet |
 | DOI | None |
 
 ## Strict scope

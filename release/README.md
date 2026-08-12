@@ -4,6 +4,11 @@ A private repository and draft PR #1 exist. The hardened source/workflow head
 passed exact-head CI and its PDF passed independent audit. The accepted-PDF
 integration head also passed all four workflows; its rebuilt PDF text and all
 six rendered pages matched the accepted artifact.
+The later authorless-template repair head
+`941a1be9f05e8a92b0c1ab9c9523238ad85b1308` also passed all four workflows,
+and its current six-page PDF passed clean-build, source-parity, blank-metadata,
+deep-privacy, and full visual preflight. A final integration-head CI pass is
+still required after committing those accepted PDF bytes and receipts.
 No public repository, release tag, immutable release, archive deposit, or DOI
 exists for this candidate.
 

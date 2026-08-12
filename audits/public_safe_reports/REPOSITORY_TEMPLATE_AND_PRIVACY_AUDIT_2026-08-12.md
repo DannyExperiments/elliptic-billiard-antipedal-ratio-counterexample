@@ -47,18 +47,17 @@ preferred-citation identity in `CITATION.cff`. AI assistance remains in the
 separate disclosure/provenance surfaces. No DOI, badge, release version, or
 publication claim is activated while the repository is private.
 
-The previously tracked six-page PDF belongs to the pre-normalization source.
-It remains a valid historical audit artifact but is superseded for release;
-template parity is not complete until the authorless source is rebuilt and
-the exact replacement PDF passes source, metadata, privacy, and complete
-rendered-page inspection.
-
 The first authorless rebuild compiled and passed its automated log gate, but
 manual rendered-page inspection found clipped `amsart` running-mark fragments
 on even pages 4 and 6. It was rejected. The source now uses the same explicit
 short-title mark on both sides, following the established authorless
-solve-paper pattern; that repaired PDF remains pending exact-head rebuild and
-complete visual inspection.
+solve-paper pattern. The repaired exact source then passed all four workflows
+at `941a1be9f05e8a92b0c1ab9c9523238ad85b1308`. Its exact six-page PDF passed
+source parity, clean-log checks, blank identity metadata, deep privacy scans,
+and complete 180-DPI rendered-page inspection. The accepted PDF SHA-256 is
+`02c377df84aa9f1d94bbd1d1eee4ce56fc3fe9f9330bf5b31005a20601678a47`.
+Template parity is therefore complete at the manuscript-artifact layer; the
+later integration commit must still repeat all four workflows.
 
 Release-asset files and a write-enabled publishing workflow are deliberately
 not treated as present-tense accomplishments. They are built only after the
@@ -92,7 +91,7 @@ visibility approval and a fresh exact-public-tree audit.
 
 ## Decision
 
-`TEMPLATE_PARITY: PASS_AFTER_EDITORIAL_REBUILD`  
+`TEMPLATE_PARITY: PASS__CURRENT_AUTHORLESS_PDF_AUDITED`  
 `CURRENT_TREE_PRIVACY: PASS`  
 `PRIVATE_GITHUB_SURFACE_PRIVACY: PASS`  
 `PUBLIC_VISIBILITY: NOT_AUTHORIZED`  
