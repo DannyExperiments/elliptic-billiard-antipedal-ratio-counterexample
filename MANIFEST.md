@@ -23,7 +23,7 @@ Generated deterministically from `PUBLIC_ALLOWLIST.txt`.
 | `PUBLIC_ALLOWLIST.txt` | 2299 | `f92d1bf4fa149bce2b1427027962db52ebe8ae9be6cfaed66e73ecb9c5a8dd51` |
 | `README.md` | 8444 | `cdf9ab743277128dc95fffb6596aeebd2395ab0943915966a4e059918d51d024` |
 | `REPRODUCIBILITY.md` | 3133 | `1878368e24250d5d03fd8ee89657218524a203de4f2aeea3da7a0cda7aea84f3` |
-| `SECURITY.md` | 1420 | `a74724cc951b8708e5205094425b32439b8710ba1466468029b365e17c6cb221` |
+| `SECURITY.md` | 1605 | `917925280184a4de99e9518fb4b696d9689d15ec87110e3172421d1405d92ae0` |
 | `STATUS.md` | 4006 | `8a5670f86135f19ccdc6fe74fcb08bc80e249d0afa829b93a8b0569c7f1cb981` |
 | `audits/README.md` | 561 | `1dd272dcfdb869aa1712d16a100eb1bc90c8a1104be2696f1c5bdd806496fc88` |
 | `audits/public_safe_reports/IMPLICATIONS_SCOPE_SUMMARY.md` | 1672 | `9c619650b8ee74e20993a932ab111f7b6af16a8882f1bfddcf8ae1c2f203de5a` |
@@ -73,7 +73,7 @@ Generated deterministically from `PUBLIC_ALLOWLIST.txt`.
 | `release/RELEASE_GATES.json` | 910 | `df39758101a238651dafa35765e9947b2c249d959171075a6424d8fd015a5530` |
 | `release/RELEASE_NOTES_v1.0.0.md` | 2696 | `de869f7baac935abd842d60ce19b8d4725fb2acb43a8e49d8253f5535a32c4e5` |
 | `release/WORKFLOW_ACTIVATION.md` | 854 | `961ffae9a352388367929e5bc95427d416386f9ad9e18b086a80734f38e9f071` |
-| `scripts/build_evidence_bundle.py` | 6898 | `12fcab8727a1cf72ebbf1ddda86b74ef5d3f9344acd90664c794e11b28079844` |
+| `scripts/build_evidence_bundle.py` | 6736 | `9d6867dca8774bf16d34320ccbd28bd2b5858f09278c574128eae80859928218` |
 | `scripts/freeze_manifest.py` | 3410 | `aa1fc077a85917fff44dc22637b1aa22b8e77477f657b74423e7fa241737d9a5` |
 | `scripts/verify.sh` | 163 | `53318ac2a4cd475fd9befc8ca67b2d4f9d5b65da193d3040624e66665f4314e4` |
 | `scripts/verify_repository.py` | 21571 | `a5f43172112c3e29f34f2289a49316edfcd72b82a1ebf44867598f585c09bf92` |

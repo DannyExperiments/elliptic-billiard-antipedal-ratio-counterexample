@@ -173,15 +173,10 @@ def main() -> int:
         print("IMMUTABLE_RELEASE_EVIDENCE_BUNDLE: PASS")
         return 0
 
-    bundle = build_bytes()
-    sidecar = sidecar_text(bundle)
-    asset_ledger = asset_ledger_text(bundle)
-    OUTPUT.write_bytes(bundle)
-    SIDECAR.write_text(sidecar, encoding="utf-8")
-    ASSET_LEDGER.write_text(asset_ledger, encoding="utf-8")
-    print(f"WROTE {OUTPUT.relative_to(ROOT)}")
-    print(f"SHA256 {sha256(bundle)}")
-    return 0
+    raise SystemExit(
+        "IMMUTABLE_RELEASE_ARTIFACTS: REFUSE_REBUILD_FROM_POST_DOI_TREE; "
+        "use --check or reconstruct from the v1.0.0 tag in a separate directory"
+    )
 
 
 if __name__ == "__main__":
