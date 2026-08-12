@@ -373,6 +373,7 @@ def check_rights_and_metadata() -> list[str]:
     required_citation_lines = {
         'version: 1.0.0',
         'date-released: 2026-08-12',
+        'date-published: 2026-08-12',
         'doi: "10.5281/zenodo.21907170"',
         'url: "https://doi.org/10.5281/zenodo.21907170"',
         'repository-code: "https://github.com/DannyExperiments/elliptic-billiard-antipedal-ratio-counterexample"',

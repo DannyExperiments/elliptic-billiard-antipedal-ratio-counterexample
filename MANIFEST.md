@@ -13,7 +13,7 @@ Generated deterministically from `PUBLIC_ALLOWLIST.txt`.
 | `.github/workflows/verify.yml` | 489 | `c4de4fb8b1e621ecc24e49aab10124f58eb70bd8eeda59283e8255591d70b42b` |
 | `.gitignore` | 278 | `acc20638d0e472d4a070cb5bf18917d480bf92c790168a9cd1c92c0124f9781e` |
 | `AI_DISCLOSURE.md` | 884 | `7c253331ad5b1e2b196d04c787624239dae224e31c1f4e6eb33d8940052b8741` |
-| `CITATION.cff` | 1283 | `99b779e1efa67a2092e9ab16c50b98f0920aba5d6df24b0b9ebfe88013d560b6` |
+| `CITATION.cff` | 1284 | `2c09e5581c654deab77c066fcf68551c63490103a372986e8c7cf3ae5fe7f98c` |
 | `CITATION_STATUS.md` | 1096 | `12b7ae1cbe063ccd754e66070e1b8171b357910fd7c00a800f8662a02db6ed73` |
 | `CLAIMS_EVIDENCE_MATRIX.md` | 3441 | `01fe7c407a3df56188eed65eab4a3dd7e83281435d38ff52a018b5c8468d51a4` |
 | `CONTRIBUTING.md` | 694 | `7b89e3d450f94ce5153cdb7dfa7cd67f651c0f7e5e49fc28223a1f7c2a106686` |
@@ -76,7 +76,7 @@ Generated deterministically from `PUBLIC_ALLOWLIST.txt`.
 | `scripts/build_evidence_bundle.py` | 6736 | `9d6867dca8774bf16d34320ccbd28bd2b5858f09278c574128eae80859928218` |
 | `scripts/freeze_manifest.py` | 3410 | `aa1fc077a85917fff44dc22637b1aa22b8e77477f657b74423e7fa241737d9a5` |
 | `scripts/verify.sh` | 163 | `53318ac2a4cd475fd9befc8ca67b2d4f9d5b65da193d3040624e66665f4314e4` |
-| `scripts/verify_repository.py` | 21571 | `a5f43172112c3e29f34f2289a49316edfcd72b82a1ebf44867598f585c09bf92` |
+| `scripts/verify_repository.py` | 21609 | `c9b01cd75c453e1a1806ea792eb0c49d6deb3da23ba41fa338ca14e42d2e00dc` |
 | `verification/EXPECTED_K607_STDLIB.txt` | 504 | `8db0d193ef6820c9ae10dcd4ecb4004d3091522f67ee716ad4da3f7b17c9c64a` |
 | `verification/README.md` | 1232 | `1e1c100528f66ea276f120eadf518eea8bea11eb059aa1a87993535340751e60` |
 | `verification/REPLAY_ACTUAL.txt` | 504 | `8db0d193ef6820c9ae10dcd4ecb4004d3091522f67ee716ad4da3f7b17c9c64a` |
