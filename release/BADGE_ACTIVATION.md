@@ -1,8 +1,8 @@
 # Badge activation plan
 
-No badge is active while the repository is private. After explicit public
-visibility approval, protected public `main`, and fresh anonymous checks, the
-maximum authorized badge set is:
+No badge is active while the repository is private. Public visibility is now
+approved; after protected public `main` and fresh anonymous checks, the maximum
+authorized badge set is:
 
 - repository integrity;
 - exact standard-library replay;

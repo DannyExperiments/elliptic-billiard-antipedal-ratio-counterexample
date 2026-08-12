@@ -1,6 +1,7 @@
 # DOI deposit plan
 
-No DOI exists and no deposit is authorized.
+No DOI exists. The human owner authorized a deposit after the immutable
+GitHub `v1.0.0` release and exact public-asset verification pass.
 
 After an immutable GitHub `v1.0.0` release is published and anonymously
 re-downloaded, the deposit lane must:
@@ -13,7 +14,8 @@ re-downloaded, the deposit lane must:
 5. use software type, version `1.0.0`, public access, and the all-rights-reserved
    rights statement, without inventing an open-source license;
 6. link the exact GitHub release as the identical/supplementary public object;
-7. obtain explicit human approval for final metadata before publication; and
+7. compare the final metadata byte-for-byte with the approved release fields;
+   and
 8. after publication, verify version and concept DOI resolution, DataCite
    findability, exact file inventory, anonymous downloads, and byte parity.
 

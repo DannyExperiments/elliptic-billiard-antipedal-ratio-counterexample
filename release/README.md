@@ -1,21 +1,15 @@
 # Release staging
 
-A private repository and draft PR #1 exist. The hardened source/workflow head
-passed exact-head CI and its PDF passed independent audit. The accepted-PDF
-integration head also passed all four workflows; its rebuilt PDF text and all
-six rendered pages matched the accepted artifact.
-The later authorless-template repair head
-`941a1be9f05e8a92b0c1ab9c9523238ad85b1308` also passed all four workflows,
-and its current six-page PDF passed clean-build, source-parity, blank-metadata,
-deep-privacy, and full visual preflight. A final integration-head CI pass is
-still required after committing those accepted PDF bytes and receipts.
-That integration head is
-`edcc9d4b68e0318e05589c1caa6286b6f91473aa`; all four workflows passed and
-its rebuilt text and all six page renders matched. The private candidate is
-merge-ready only while all four checks are green on the live exact PR head;
-every later head remains subject to the same gate.
-No public repository, release tag, immutable release, archive deposit, or DOI
-exists for this candidate.
+A private repository and draft PR #1 exist. The accepted manuscript and PDF
+passed source parity, blank-metadata and deep-privacy checks, and full visual
+inspection. Exact PR head
+`214a8c3001bbfe68b231b6158dd7904b5ac196ba` passed all four workflows (runs
+`31577655770`, `31577655875`, `31577655948`, and `31577655760`). The human
+owner has approved the final title, public evidence, disclosure, partial-Lean
+scope, public visibility, immutable Version 1.0.0 release, and DOI deposit.
+The approval-only successor head must pass the same four checks before merge.
+No public repository, tag, immutable release, archive deposit, or DOI exists
+yet; external notice remains separately unapproved.
 
 The mature-repository release layout is staged in this directory:
 `RELEASE_NOTES_v1.0.0.md`, `BADGE_ACTIVATION.md`,

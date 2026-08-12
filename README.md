@@ -81,7 +81,7 @@ scoped Lean artifact.
 | Manuscript | Authorless source matches the mature solve template; the current six-page PDF passed its clean build, source-parity check, blank-metadata/privacy audit, and complete 6/6 visual inspection |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
-| Repository | Private draft PR #1 active; repaired-source and accepted-PDF integration heads passed all four checks, and the integration rebuild matched all six pages; merge remains governed by the live exact-head four-check gate; no public visibility, merge, tag, or release yet |
+| Repository | Public transition approved; private draft PR #1 remains the exact review surface, and its approval-only head must pass all four workflows before merge |
 | DOI | None |
 
 ## Strict scope
@@ -128,7 +128,8 @@ granted; all rights are reserved as described in
 
 ## Release status
 
-This is an audited private release candidate. Workflow badges, public
-visibility, protected-main activation, an immutable `v1.0.0` release, DOI
-metadata, and any external notice remain separate human-controlled gates. See
+This audited private release candidate is approved for public transition.
+Workflow badges activate only after protected public `main` passes; the
+immutable `v1.0.0` release and DOI remain ordered verification gates. Any
+external problem-site notice remains separately unapproved. See
 [STATUS.md](STATUS.md) and [release/README.md](release/README.md).

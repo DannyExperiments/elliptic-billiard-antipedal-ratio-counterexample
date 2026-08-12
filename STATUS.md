@@ -2,7 +2,7 @@
 
 Status date: 2026-08-12.
 
-Current repository state: `PRIVATE_DRAFT_PR_AUDITED__LIVE_EXACT_HEAD_CHECK_REQUIRED`.
+Current repository state: `HUMAN_RELEASE_APPROVED__PRIVATE_PR_FINAL_CI_REQUIRED`.
 
 Public release gate: `BLOCKED_FAIL_CLOSED`.
 
@@ -20,17 +20,18 @@ Public release gate: `BLOCKED_FAIL_CLOSED`.
 | Peer review | `NOT_OBTAINED` | AI mathematical audits are not human peer review. |
 | Authorship | `DANNYEXPERIMENTS_NO_AFFILIATION` | Explicit staging convention; final citation metadata remains subject to release review. |
 | License | `ALL_RIGHTS_RESERVED` | No repository-wide reuse license is granted. |
-| Remote/publication | `PRIVATE_DRAFT_PR_AUDITED` | Private draft PR #1 exists. The repaired exact-source and PDF-integration heads passed all four checks; the integration rebuild had byte-identical text and pixel-identical renders on all six pages. Merge is allowed only when the live exact PR head has all four checks green. No public repository, merge, tag, immutable release, or DOI is authorized yet. |
+| Remote/publication | `PUBLIC_TRANSITION_APPROVED__PRIVATE_PR_OPEN` | The human owner approved the final title, disclosure, canonical evidence, partial-Lean scope, public visibility, immutable Version 1.0.0 release, and DOI metadata/deposit. Private draft PR #1 remains the exact review surface. Its previous exact head `214a8c3001bbfe68b231b6158dd7904b5ac196ba` passed all four workflows (runs `31577655770`, `31577655875`, `31577655948`, and `31577655760`). The approval-only head must pass the same four checks before merge. External problem-site notice remains separately unapproved. |
 
 ## Required next gates
 
 1. Verify all four checks are green on the live exact PR head immediately
    before merge.
-2. Obtain the remaining human approvals for disclosure, visibility, DOI
-   metadata, and external notice.
-3. Merge only after the exact integration head is green; then configure and
+2. Merge only after the approval-only exact head is green; then configure and
    verify protected-main checks before visibility, badges, or immutable-release
    work.
+3. Publish and hash-check the immutable release, then deposit its exact bytes
+   to Zenodo and add DOI metadata through a protected metadata-only change.
+4. Keep any external problem-site notice blocked until separately approved.
 
 Running an integrity check does not advance any mathematical, priority,
 formalization, peer-review, or release state.

@@ -1,7 +1,8 @@
 # Proposed Version 1.0.0 release notes
 
-No release exists. This is a frozen-format draft for a possible first
-immutable release; it is not a version announcement.
+No release exists yet. Version 1.0.0 publication is human-approved, but this
+file remains a release candidate until protected public-main CI and exact asset
+verification pass.
 
 ## Result
 
@@ -38,7 +39,7 @@ unrestricted logs are excluded.
 
 ## Immutable assets
 
-If and only if separately authorized, Version 1.0.0 will contain exactly:
+The authorized Version 1.0.0 release will contain exactly:
 
 - `elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.pdf`;
 - `elliptic-billiard-antipedal-ratio-counterexample-v1.0.0.tex`;

@@ -389,7 +389,15 @@ def load_release_gates() -> tuple[dict[str, bool], list[str]]:
     if any(type(value) is not bool for value in gates.values()):
         failures.append("every release gate must be a boolean")
 
-    all_pass = set(gates) == REQUIRED_GATE_NAMES and all(gates.values())
+    # An external problem-site notice is a separate Stage-10 action. A public
+    # release and DOI may close honestly while that optional, separately
+    # approved communication gate remains false.
+    closure_gates = {
+        name: value
+        for name, value in gates.items()
+        if name != "human_external_notice_approved"
+    }
+    all_pass = set(gates) == REQUIRED_GATE_NAMES and all(closure_gates.values())
     expected_status = "RELEASE_AND_DOI_CLOSED" if all_pass else "BLOCKED_FAIL_CLOSED"
     if document.get("status") != expected_status:
         failures.append(f"release status must be {expected_status}")
@@ -433,7 +441,11 @@ def main() -> int:
         print("PUBLIC_RELEASE_GATE: NOT_EVALUATED")
         return 0
 
-    blockers = [f"gate false: {name}" for name, value in sorted(gates.items()) if not value]
+    blockers = [
+        f"gate false: {name}"
+        for name, value in sorted(gates.items())
+        if not value and name != "human_external_notice_approved"
+    ]
     actual = set(public_files())
     blockers.extend(
         f"required release file absent: {rel}"
