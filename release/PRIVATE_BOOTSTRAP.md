@@ -24,6 +24,13 @@ checksum-pinned PDF artifact passed complete independent inspection and is now
 being integrated on the same draft PR. The later integration head must repeat
 all four checks before merge.
 
+That accepted-PDF integration head is
+`bfe5e31a9ed5ef315bfeb9ee016024e15a10a341`, exact tree
+`e650e7acd82bcec95f8b0a6cdf561f9f35fb22eb`. It passed all four workflows.
+Its PDF rebuild had byte-identical extracted text and pixel-identical renders
+on all six pages. Any later receipt-only head must also keep all four checks
+green before merge.
+
 After the reviewed tree reaches `main`, branch protection must require pull
 requests, these four unique up-to-date checks, conversation resolution, and
 linear history, with no force pushes, deletion, or administrator bypass.

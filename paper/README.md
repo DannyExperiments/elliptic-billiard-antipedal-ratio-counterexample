@@ -23,5 +23,6 @@ introduced.
 head `1c29524a5eb5745cbf785c76e40018bbb979316d`. It passed a clean
 checksum-pinned build, source parity, metadata/privacy inspection, and visual
 inspection of all six rendered pages. `PDF_PREFLIGHT.md` binds the source,
-workflow, artifact, log, PDF, extracted text, and rendered-page hashes. Final
-exact-head CI for the repository integration delta remains pending.
+workflow, artifact, log, PDF, extracted text, and rendered-page hashes. The
+accepted-PDF integration head passed all four workflows; its PDF rebuild had
+byte-identical extracted text and pixel-identical renders on all six pages.

@@ -84,3 +84,25 @@ RELEASE_PDF_APPROVED_FOR_CANDIDATE_TREE: YES
 
 This receipt accepts the exact PDF as a candidate-tree artifact. It does not
 claim peer review, absolute priority, a public release, or a DOI.
+
+## Integration-head replay
+
+The accepted PDF was then integrated at private PR head
+`bfe5e31a9ed5ef315bfeb9ee016024e15a10a341`, exact Git tree
+`e650e7acd82bcec95f8b0a6cdf561f9f35fb22eb`. All four workflows passed:
+
+- repository integrity: run `31570981780`, job `94032731653`;
+- exact Python replay: run `31570981838`, job `94032731648`;
+- partial Lean certificate: run `31570981822`, job `94032731711`;
+- PDF rebuild: run `31570981790`, job `94032731680`.
+
+The integration-head PDF artifact `9131363607` had ZIP SHA-256
+`69f98c86daed8c331d522aa1071a0cf4381182eff07bcf0cfe67f4edc600f9ad`.
+Its rebuilt PDF SHA-256 was
+`77fe9f661b21b97d067d4bab0258dc56573a8fb3a677399d03e32771c1c018e7`;
+the byte difference from the accepted PDF is the expected build timestamp.
+The extracted text was byte-identical at SHA-256
+`c02191b8cca6aa9795be4aab78a7c3da74976a22e127bd2db5449cc48f90d670`,
+and all six 160-DPI rendered pages were pixel-identical to the accepted-page
+renders. The integration rebuild therefore confirms exact visible-content and
+scope parity without replacing the accepted artifact.

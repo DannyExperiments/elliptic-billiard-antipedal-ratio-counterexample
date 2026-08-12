@@ -20,7 +20,7 @@ METADATA_ONLY_PDF_SUBJECT_REPAIR: APPLIED__VISIBLE_MATHEMATICS_UNCHANGED
 CURRENT_SOURCE_REPLACEMENT_BUILD: PASS__COMMIT_1C29524A5EB5745CBF785C76E40018BBB979316D__RUN_31570217856
 REPLACEMENT_PDF_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__PDF_SHA256_998BA5F77CB8D94A69E4DC7E089F5DD8A2B314AAC7B8F77F677D95553064C7CD
 MANUSCRIPT_PASS: PASS__ACCEPTED_PDF_CANDIDATE_TREE
-REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__INTEGRATION_HEAD_CI_PENDING
+REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__ACCEPTED_PDF_INTEGRATION_HEAD_PASS
 ```
 
 ## Members
@@ -64,6 +64,10 @@ clean build on private PR head `1c29524a5eb5745cbf785c76e40018bbb979316d`
 passed the focused content, metadata, privacy, and complete six-page visual
 audit. The accepted PDF is recorded separately in the repository-level ledger
 and `PDF_PREFLIGHT.md`; the nested ledger remains a source-package identity.
+The accepted-PDF integration head
+`bfe5e31a9ed5ef315bfeb9ee016024e15a10a341` subsequently passed all four
+workflows, and its rebuild had byte-identical extracted text and pixel-identical
+renders on all six pages.
 
 ## Privacy and rights surface
 

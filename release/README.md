@@ -1,8 +1,9 @@
 # Release staging
 
 A private repository and draft PR #1 exist. The hardened source/workflow head
-passed exact-head CI and its PDF passed independent audit; the accepted-PDF
-integration head remains pending exact-head CI.
+passed exact-head CI and its PDF passed independent audit. The accepted-PDF
+integration head also passed all four workflows; its rebuilt PDF text and all
+six rendered pages matched the accepted artifact.
 No public repository, release tag, immutable release, archive deposit, or DOI
 exists for this candidate.
 

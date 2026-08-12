@@ -2,7 +2,7 @@
 
 Status date: 2026-08-12.
 
-Current repository state: `PRIVATE_PR_ACCEPTED_PDF_INTEGRATION_STAGING`.
+Current repository state: `PRIVATE_PR_RELEASE_CANDIDATE_PENDING_HUMAN_GATES`.
 
 Public release gate: `BLOCKED_FAIL_CLOSED`.
 
@@ -15,17 +15,16 @@ Public release gate: `BLOCKED_FAIL_CLOSED`.
 | Priority | `PRIORITY_PASS_QUALIFIED` | The three-lane adjudication found no exact collision; “apparently new after a documented three-lane search through 2026-08-12” is the strongest authorized language. |
 | Exact evidence | `INTEGRATED_REPLAY_PASS` | Deterministic public-safe archive, detached hash, inspected fail-closed verifier, expected output, and frozen replay receipt are integrated. Ordinary and optimized replays byte-match. |
 | Manuscript source | `INTEGRATED_FROZEN_STATIC_PASS` | The Stage-4 Candidate-B TeX, bibliography, build instructions, scope, comparison, manifest, and checksum receipts are integrated byte-for-byte. |
-| Manuscript PDF | `ACCEPTED_PDF_INTEGRATED_LOCAL` | The checksum-pinned replacement build produced a six-page PDF that passed source parity, metadata, privacy, and complete 6-of-6 rendered-page inspection. The exact accepted PDF and its preflight receipt are integrated locally; final exact-head CI remains pending for that integration delta. |
+| Manuscript PDF | `ACCEPTED_PDF_INTEGRATION_HEAD_PASS` | The checksum-pinned replacement PDF passed source parity, metadata, privacy, and complete 6-of-6 rendered-page inspection. Integration head `bfe5e31a9ed5ef315bfeb9ee016024e15a10a341` then passed all four workflows; its rebuilt PDF had byte-identical extracted text and pixel-identical renders. |
 | Formalization | `PARTIAL_LEAN_INTEGRATED_PASS` | The dependency-free Lean 4.30.0 finite certificate builds, passes `leanchecker`, exact axiom comparison, and no-escape scanning. It does not formalize the full real-geometric theorem. No Aristotle artifact is claimed. |
 | Peer review | `NOT_OBTAINED` | AI mathematical audits are not human peer review. |
 | Authorship | `DANNYEXPERIMENTS_NO_AFFILIATION` | Explicit staging convention; final citation metadata remains subject to release review. |
 | License | `ALL_RIGHTS_RESERVED` | No repository-wide reuse license is granted. |
-| Remote/publication | `PRIVATE_DRAFT_PR_ACTIVE` | Private draft PR #1 exists. Its hardened source/workflow head `1c29524a5eb5745cbf785c76e40018bbb979316d` passed all four checks. The accepted-PDF integration delta has not yet passed exact-head CI. No public repository, tag, immutable release, or DOI exists. |
+| Remote/publication | `PRIVATE_DRAFT_PR_AUDITED` | Private draft PR #1 exists. Both the hardened source/workflow head and accepted-PDF integration head passed all four checks. No public repository, merge, tag, immutable release, or DOI is authorized yet. |
 
 ## Required next gates
 
-1. Run all four checks on the exact accepted-PDF integration head and perform
-   a final remote/local byte-parity audit.
+1. Require all four checks to remain green on the final receipt-refreeze head.
 2. Obtain the remaining human approvals for disclosure, visibility, DOI
    metadata, and external notice.
 3. Merge only after the exact integration head is green; then configure and
