@@ -11,8 +11,9 @@ deep-privacy, and full visual preflight. A final integration-head CI pass is
 still required after committing those accepted PDF bytes and receipts.
 That integration head is
 `edcc9d4b68e0318e05589c1caa6286b6f91473aa`; all four workflows passed and
-its rebuilt text and all six page renders matched. Only a final receipt-head
-regression pass remains before the private candidate is merge-ready.
+its rebuilt text and all six page renders matched. The private candidate is
+merge-ready only while all four checks are green on the live exact PR head;
+every later head remains subject to the same gate.
 No public repository, release tag, immutable release, archive deposit, or DOI
 exists for this candidate.
 

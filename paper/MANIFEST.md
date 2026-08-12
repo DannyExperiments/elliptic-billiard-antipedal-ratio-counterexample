@@ -27,7 +27,7 @@ CURRENT_SOURCE_CLEAN_BUILD: PASS__COMMIT_941A1BE9F05E8A92B0C1AB9C9523238AD85B130
 CURRENT_SOURCE_VISUAL_AND_PRIVACY_AUDIT: PASS__6_OF_6_PAGES__IDENTITY_METADATA_BLANK
 CURRENT_SOURCE_PDF: PASS__SHA256_02C377DF84AA9F1D94BBD1D1EEE4CE56FC3FE9F9330BF5B31005A20601678A47
 MANUSCRIPT_PASS: PASS__CURRENT_AUTHORLESS_SOURCE_AND_PDF
-REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__PDF_INTEGRATION_HEAD_PASS__FINAL_RECEIPT_CI_PENDING
+REPOSITORY_ACTION: PRIVATE_DRAFT_PR_1__PDF_INTEGRATION_HEAD_PASS__LIVE_EXACT_HEAD_GATE
 ```
 
 ## Members
@@ -103,8 +103,8 @@ That integration commit is
 `edcc9d4b68e0318e05589c1caa6286b6f91473aa`, exact tree
 `6f5e0d615c63794539cfca403a4b0722d2b57106`. All four workflows passed. Its
 rebuilt PDF had byte-identical extracted text and pixel-identical renders on
-all six pages, blank identity metadata, and zero privacy findings. The final
-receipt-only head must repeat all four checks before merge.
+all six pages, blank identity metadata, and zero privacy findings. Any later
+commit must satisfy the same live exact-head four-check gate before merge.
 
 ## Privacy and rights surface
 

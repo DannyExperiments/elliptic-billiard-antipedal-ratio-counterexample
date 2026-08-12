@@ -147,5 +147,6 @@ the build log, extracted text, raw PDF bytes, and rendered pages had zero
 private-information findings. The byte difference between the two PDFs is
 limited to reproducible build-time metadata and does not alter visible content.
 
-The following receipt-only commit must keep all four workflows green before
-merge; it does not replace or modify the accepted PDF bytes.
+Any later commit must keep all four workflows green on the live exact PR head
+before merge; documentation-only changes do not replace or modify the accepted
+PDF bytes.

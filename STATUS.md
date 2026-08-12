@@ -2,7 +2,7 @@
 
 Status date: 2026-08-12.
 
-Current repository state: `PRIVATE_PR_FINAL_RECEIPT_CI_PENDING`.
+Current repository state: `PRIVATE_DRAFT_PR_AUDITED__LIVE_EXACT_HEAD_CHECK_REQUIRED`.
 
 Public release gate: `BLOCKED_FAIL_CLOSED`.
 
@@ -20,11 +20,12 @@ Public release gate: `BLOCKED_FAIL_CLOSED`.
 | Peer review | `NOT_OBTAINED` | AI mathematical audits are not human peer review. |
 | Authorship | `DANNYEXPERIMENTS_NO_AFFILIATION` | Explicit staging convention; final citation metadata remains subject to release review. |
 | License | `ALL_RIGHTS_RESERVED` | No repository-wide reuse license is granted. |
-| Remote/publication | `PRIVATE_DRAFT_PR_AUDITED` | Private draft PR #1 exists. The repaired exact-source and PDF-integration heads passed all four checks; the integration rebuild had byte-identical text and pixel-identical renders on all six pages. The final receipt-only head must repeat all four checks. No public repository, merge, tag, immutable release, or DOI is authorized yet. |
+| Remote/publication | `PRIVATE_DRAFT_PR_AUDITED` | Private draft PR #1 exists. The repaired exact-source and PDF-integration heads passed all four checks; the integration rebuild had byte-identical text and pixel-identical renders on all six pages. Merge is allowed only when the live exact PR head has all four checks green. No public repository, merge, tag, immutable release, or DOI is authorized yet. |
 
 ## Required next gates
 
-1. Require all four checks to remain green on the final receipt-only head.
+1. Verify all four checks are green on the live exact PR head immediately
+   before merge.
 2. Obtain the remaining human approvals for disclosure, visibility, DOI
    metadata, and external notice.
 3. Merge only after the exact integration head is green; then configure and

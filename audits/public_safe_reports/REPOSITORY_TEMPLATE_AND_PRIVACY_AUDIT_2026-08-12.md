@@ -61,7 +61,7 @@ later integration commit
 `edcc9d4b68e0318e05589c1caa6286b6f91473aa` repeated all four workflows
 successfully. Its extracted text and all six rendered pages were identical to
 the accepted artifact; blank-identity metadata and deep privacy scans passed.
-A final receipt-only head remains subject to the same four-check policy.
+Every later head remains subject to the same live exact-head four-check policy.
 
 Release-asset files and a write-enabled publishing workflow are deliberately
 not treated as present-tense accomplishments. They are built only after the

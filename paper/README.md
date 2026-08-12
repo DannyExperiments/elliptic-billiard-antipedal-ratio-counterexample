@@ -30,5 +30,6 @@ inspection, and visual inspection of all six 180-DPI rendered pages.
 text, and rendered-page hashes. No mathematical text changed during the
 authorless-template or running-header repairs. The later commit integrating
 this PDF passed all four workflows; its rebuild had byte-identical text and
-pixel-identical renders on all six pages. The final receipt-only head must
-repeat all four workflows before merge.
+pixel-identical renders on all six pages. Any later head must repeat all four
+workflows before merge; this is enforced as a live exact-head gate rather than
+a self-referential status string.

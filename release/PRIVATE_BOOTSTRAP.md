@@ -49,7 +49,7 @@ repository integrity `31576465722`, exact replay `31576465684`, partial Lean
 SHA-256 `4325fd2d4bfad54ea219026093a3c742d91980eb8f2729ea514aef327229dc4c`.
 Its extracted PDF text and all six 180-DPI page renders matched the accepted
 artifact exactly; identity metadata and privacy scans passed. A receipt-only
-head must now keep all four checks green before merge.
+or later head must keep all four checks green immediately before merge.
 
 After the reviewed tree reaches `main`, branch protection must require pull
 requests, these four unique up-to-date checks, conversation resolution, and

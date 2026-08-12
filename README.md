@@ -81,7 +81,7 @@ scoped Lean artifact.
 | Manuscript | Authorless source matches the mature solve template; the current six-page PDF passed its clean build, source-parity check, blank-metadata/privacy audit, and complete 6/6 visual inspection |
 | Formalization | Integrated partial finite exact Lean certificate builds and kernel-checks; the real/topological bridge and full theorem are not formalized |
 | Peer review | No human specialist or journal peer review is claimed |
-| Repository | Private draft PR #1 active; repaired-source and accepted-PDF integration heads passed all four checks, and the integration rebuild matched all six pages; final receipt-only CI is pending; no public visibility, merge, tag, or release yet |
+| Repository | Private draft PR #1 active; repaired-source and accepted-PDF integration heads passed all four checks, and the integration rebuild matched all six pages; merge remains governed by the live exact-head four-check gate; no public visibility, merge, tag, or release yet |
 | DOI | None |
 
 ## Strict scope

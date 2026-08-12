@@ -39,9 +39,9 @@ proof material was cross-patched.
 | `paper/CLAIM_SCOPE_AND_LIMITATIONS.md` | `67320296fb0ebb196c6925c0cfcd3d1afcec9d8cec1ee5982f8df5a7411f79a8` |
 | `paper/SOURCE_TO_CANONICAL_COMPARISON.md` | `34f185ec5bc229947ea117d5f51310b9d56ccae62e9f81ef43f0e379a19cde4c` |
 | `paper/CHANGELOG_FROM_CANONICAL_PROOF.md` | `1315b7b321e3121e1ddffdaaed5eeeb732136798546454b49d4cad4d230a7f7a` |
-| `paper/MANIFEST.md` | `cc3a20e7662fc599ddc7e61e3e4bb68726d427f69f51cece6df6be5599fde8fa` |
-| `paper/SHA256SUMS.txt` | `316b638cf657e96e771e0d9e4f5d4e9340066ecc322cd0d11de86fb711990825` |
-| `paper/SHA256SUMS.txt.sha256` | `21258c668d01541326a935e3956f9e1e18820108046ae76808a36094e1e6b867` |
+| `paper/MANIFEST.md` | `db742193ced50be35a96b47a4640f6e6e431b50381dfa377e2dbbd9dbee58943` |
+| `paper/SHA256SUMS.txt` | `fa7b3c8296ed5edd8e61b7cd0079f5e48f83776003884b1aa7e724a56c0fd9a7` |
+| `paper/SHA256SUMS.txt.sha256` | `91ffba6a6236b067ac2a74fd1f1be0211ec724298a78dcdbdae20fe2fbe5f90f` |
 
 These receipts establish exact source identity. The current authorless
 derivative built successfully at exact private PR head
@@ -55,8 +55,8 @@ still repeat all four repository workflows before merge. That integration
 commit is `edcc9d4b68e0318e05589c1caa6286b6f91473aa`, exact tree
 `6f5e0d615c63794539cfca403a4b0722d2b57106`; all four workflows passed. Its
 CI rebuild had byte-identical extracted text, pixel-identical renders on all
-six pages, blank identity metadata, and zero privacy findings. The final
-receipt-only head must also remain green before merge.
+six pages, blank identity metadata, and zero privacy findings. Any later head
+must also remain green under the live exact-head four-check gate before merge.
 
 ## Public exact-certificate and formalization import
 
